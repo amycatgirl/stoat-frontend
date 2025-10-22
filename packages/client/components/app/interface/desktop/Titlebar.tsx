@@ -1,6 +1,7 @@
 import { Match, Show, Switch, createSignal } from "solid-js";
 import { Motion, Presence } from "solid-motionone";
 
+import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
 import { useClientLifecycle } from "@revolt/client";
@@ -13,36 +14,14 @@ import MdCollapseContent from "@material-symbols/svg-400/outlined/collapse_conte
 import MdExpandContent from "@material-symbols/svg-400/outlined/expand_content.svg?component-solid";
 import MdMinimize from "@material-symbols/svg-400/outlined/minimize.svg?component-solid";
 
-import wordmark from "../../../../public/assets/web/wordmark.svg";
+import Wordmark from "../../../../public/assets/web/wordmark.svg?component-solid";
 import { pendingUpdate } from "../../../../src/serviceWorkerInterface";
 
-declare global {
-  interface Window {
-    native: {
-      minimise(): void;
-      maximise(): void;
-      close(): void;
-    };
-  }
-}
-
 export function Titlebar() {
-  const [isMaximised, setIsMaximised] = createSignal(false);
+  const [isMaximised, setIsMaximised] = createSignal(
+    window.native ? window.desktopConfig.get().windowState.isMaximised : false,
+  );
   const { lifecycle } = useClientLifecycle();
-
-  // async function onResize() {
-  //   setIsMaximised(await window.isMaximized());
-  // }
-
-  // onMount(async () => {
-  //   setIsMaximised(await window.isMaximized());
-
-  //   const unlisten = await window?.onResized(onResize);
-
-  //   if (unlisten) {
-  //     onCleanup(unlisten);
-  //   }
-  // });
 
   function isDisconnected() {
     return [
@@ -53,9 +32,19 @@ export function Titlebar() {
     ].includes(lifecycle.state());
   }
 
+  function maximise() {
+    window.native.maximise();
+    setIsMaximised((t) => !t);
+  }
+
   return (
     <Presence>
-      <Show when={window.native || isDisconnected()}>
+      <Show
+        when={
+          (window.native && window.desktopConfig?.get().customFrame) ||
+          isDisconnected()
+        }
+      >
         <Motion.div
           initial={{ height: 0 }}
           animate={{ height: "29px" }}
@@ -68,7 +57,12 @@ export function Titlebar() {
                 "-webkit-app-region": "drag",
               }}
             >
-              <Wordmark src={wordmark} />{" "}
+              <Wordmark
+                class={css({
+                  height: "18px",
+                  marginBlockStart: "1px",
+                })}
+              />{" "}
               <Show when={import.meta.env.DEV}>
                 <MdBuild {...symbolSize(16)} />
               </Show>
@@ -107,6 +101,9 @@ export function Titlebar() {
                         type: TransitionType.Retry,
                       })
                     }
+                    style={{
+                      "-webkit-app-region": "no-drag",
+                    }}
                   >
                     <strong> (reconnect now)</strong>
                   </a>
@@ -114,9 +111,15 @@ export function Titlebar() {
               </Switch>
               <Show when={pendingUpdate()}>
                 {" "}
-                <Button size="sm" onPress={pendingUpdate()}>
-                  Update
-                </Button>
+                <div
+                  style={{
+                    "-webkit-app-region": "no-drag",
+                  }}
+                >
+                  <Button size="sm" onPress={pendingUpdate()}>
+                    Update
+                  </Button>
+                </div>
               </Show>
             </DragHandle>
             <Show when={window.native}>
@@ -124,7 +127,7 @@ export function Titlebar() {
                 <Ripple />
                 <MdMinimize {...symbolSize(20)} />
               </Action>
-              <Action onClick={window.native.maximise}>
+              <Action onClick={maximise}>
                 <Ripple />
                 <Show
                   when={isMaximised()}
@@ -153,6 +156,8 @@ const Base = styled("div", {
 
     display: "flex",
     alignItems: "center",
+
+    fill: "var(--md-sys-color-on-surface)",
   },
   variants: {
     disconnected: {
@@ -165,13 +170,6 @@ const Base = styled("div", {
         background: "var(--md-sys-color-surface-container-high)",
       },
     },
-  },
-});
-
-const Wordmark = styled("img", {
-  base: {
-    height: "18px",
-    marginBlockStart: "4px",
   },
 });
 

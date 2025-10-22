@@ -11,7 +11,8 @@ import {
   useTracks,
 } from "solid-livekit-components";
 
-import { Room, Track } from "livekit-client";
+import { Track } from "livekit-client";
+import { Channel } from "stoat.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
@@ -213,10 +214,28 @@ export function LeParticipant() {
   );
 }
 
-export function Demo() {
+export function DemoWrapper(props: { channel: Channel }) {
+  const voice = useVoice()!;
+
+  const shouldShow = () => {
+    const room = voice.room();
+    return !room
+      ? !!props.channel.server
+      : voice.channel()?.id === props.channel.id;
+  };
+
+  return (
+    <Switch>
+      <Match when={shouldShow()}>
+        <Demo channel={props.channel} />
+      </Match>
+    </Switch>
+  );
+}
+
+export function Demo(props: { channel: Channel }) {
   const client = useClient();
   const voice = useVoice()!;
-  const params = useSmartParams();
 
   /**
    * Join voice call
@@ -224,24 +243,7 @@ export function Demo() {
    * todo: make this consistnet
    */
   async function joinCall() {
-    const [h, v] = client()!.authenticationHeader;
-
-    const { token, url } = await fetch(
-      client()!.api.config.baseURL +
-        `/channels/${params().channelId!}/join_call`,
-      {
-        method: "POST",
-        headers: {
-          [h]: v,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ node: "worldwide" }),
-      },
-    ).then((r) => r.json());
-
-    if (token && url) {
-      voice.connect(url, token);
-    }
+    voice.connect(props.channel);
   }
 
   return (
@@ -284,6 +286,9 @@ export function Demo() {
       })}
     >
       {/* <FakeParticipants /> */}
+      <Show when={voice.state() === "CONNECTING"}>
+        <span>Connecting...</span>
+      </Show>
       <InRoom>
         <RoomParticipants />
       </InRoom>
@@ -295,13 +300,43 @@ export function Demo() {
       <Row justify>
         <Actions>
           <Show when={voice.state() !== "READY"}>
-            <IconButton variant="filled" onPress={() => voice.toggleMute()}>
-              <Switch fallback={<MdMicOff {...iconSize(20)} />}>
-                <Match when={voice.microphone()}>
-                  <MdMicOn {...iconSize(20)} />
-                </Match>
-              </Switch>
-            </IconButton>
+            <div
+              use:floating={{
+                tooltip: props.channel.havePermission("Speak")
+                  ? undefined
+                  : {
+                      placement: "top",
+                      content: "No permission to speak",
+                    },
+              }}
+            >
+              <IconButton
+                variant={voice.microphone() ? "filled" : "tonal"}
+                isDisabled={!props.channel.havePermission("Speak")}
+                onPress={() => voice.toggleMute()}
+              >
+                <Switch fallback={<MdMicOff {...iconSize(20)} />}>
+                  <Match when={voice.microphone()}>
+                    <MdMicOn {...iconSize(20)} />
+                  </Match>
+                </Switch>
+              </IconButton>
+            </div>
+          </Show>
+
+          <Show when={!props.channel.havePermission("Listen")}>
+            <div
+              use:floating={{
+                tooltip: {
+                  placement: "top",
+                  content: "You are deafened (or missing Listen permission)",
+                },
+              }}
+            >
+              <IconButton variant="tonal" isDisabled>
+                <MdHeadsetOff {...iconSize(20)} />
+              </IconButton>
+            </div>
           </Show>
 
           <Switch

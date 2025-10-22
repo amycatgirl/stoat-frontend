@@ -1,6 +1,8 @@
 /**
  * Configure contexts and render App
  */
+import "./sentry";
+
 import { JSX, Show, createSignal, onMount } from "solid-js";
 import { Portal, render } from "solid-js/web";
 
@@ -9,7 +11,7 @@ import { Navigate, Route, Router, useParams } from "@solidjs/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 import "material-symbols";
 import "mdui/mdui.css";
-import { PublicBot, PublicChannelInvite } from "revolt.js";
+import { PublicBot, PublicChannelInvite } from "stoat.js";
 import { css } from "styled-system/css";
 
 import FlowCheck from "@revolt/auth/src/flows/FlowCheck";
@@ -43,7 +45,6 @@ import { Friends } from "./interface/Friends";
 import { HomePage } from "./interface/Home";
 import { ServerHome } from "./interface/ServerHome";
 import { ChannelPage } from "./interface/channels/ChannelPage";
-import "./sentry";
 import "./serviceWorkerInterface";
 
 attachDevtoolsOverlay();
@@ -77,7 +78,7 @@ function InviteRedirect() {
   onMount(() => {
     if (params.code) {
       client()
-        // TODO: add a helper to revolt.js for this
+        // TODO: add a helper to stoat.js for this
         .api.get(`/invites/${params.code as ""}`)
         .then((invite) => PublicChannelInvite.from(client(), invite))
         .then((invite) => openModal({ type: "invite", invite }))
@@ -99,7 +100,7 @@ function BotRedirect() {
   onMount(() => {
     if (params.code) {
       client()
-        // TODO: add a helper to revolt.js for this
+        // TODO: add a helper to stoat.js for this
         .api.get(`/bots/${params.code as ""}/invite`)
         .then((invite) => new PublicBot(client(), invite))
         .then((invite) => openModal({ type: "add_bot", invite }))

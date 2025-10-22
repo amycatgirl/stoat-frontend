@@ -3,7 +3,7 @@ import { JSX } from "solid-js";
 import { createSignal } from "solid-js";
 
 import { Trans } from "@lingui-solid/solid/macro";
-import { Channel, Server, User } from "revolt.js";
+import { Channel, Server, User } from "stoat.js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
@@ -307,7 +307,7 @@ export const ServerList = (props: Props) => {
             <Avatar size={42} fallback={<MdAdd />} />
           </a>
         </Tooltip>
-        <Show when={CONFIGURATION.IS_REVOLT}>
+        <Show when={CONFIGURATION.IS_STOAT}>
           <Tooltip placement="right" content={"Find new servers to join"}>
             <a
               href={state.layout.getLastActiveDiscoverPath()}

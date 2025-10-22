@@ -1,6 +1,6 @@
 import { Match, Show, Switch } from "solid-js";
 
-import { File, ImageEmbed, Message, VideoEmbed } from "revolt.js";
+import { File, ImageEmbed, Message, VideoEmbed } from "stoat.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 

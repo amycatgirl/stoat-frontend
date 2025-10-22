@@ -2,7 +2,7 @@ import { BiRegularAt } from "solid-icons/bi";
 import { Accessor, Match, Setter, Show, Switch } from "solid-js";
 
 import { Trans, useLingui } from "@lingui-solid/solid/macro";
-import { Channel } from "revolt.js";
+import { Channel } from "stoat.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
@@ -64,23 +64,7 @@ export function ChannelHeader(props: Props) {
    * Join voice call
    */
   async function joinCall() {
-    const [h, v] = client()!.authenticationHeader;
-
-    const { token, url } = await fetch(
-      client()!.api.config.baseURL + `/channels/${props.channel.id}/join_call`,
-      {
-        method: "POST",
-        headers: {
-          [h]: v,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ node: "worldwide" }),
-      },
-    ).then((r) => r.json());
-
-    if (token && url) {
-      rtc.connect(url, token);
-    }
+    rtc.connect(props.channel);
   }
 
   const searchValue = () => {
@@ -100,7 +84,6 @@ export function ChannelHeader(props: Props) {
         <Match
           when={
             props.channel.type === "TextChannel" ||
-            props.channel.type === "VoiceChannel" ||
             props.channel.type === "Group"
           }
         >
