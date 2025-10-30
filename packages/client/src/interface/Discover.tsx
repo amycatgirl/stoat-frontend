@@ -63,6 +63,11 @@ export function Discover() {
               type: "invite",
               invite,
             });
+          } else if (params.botId) {
+            client()
+              .api.get(`/bots/${params.botId as ""}/invite`)
+              .then((bot) => new PublicBot(client(), bot))
+              .then((bot) => openModal({ type: "add_bot", invite: bot }));
           } else {
             alert("Missing handler for " + data.url);
           }
