@@ -16,13 +16,13 @@ import {
   Button,
   Checkbox,
   Column,
+  IconButton,
   MenuItem,
   MessageContainer,
   Row,
   Slider,
   Text,
   TextField,
-  IconButton,
 } from "@revolt/ui";
 import {
   FONT_KEYS,
@@ -114,7 +114,7 @@ export function AppearanceMenu() {
               value={state.theme.m3Accent ?? "#ffffff"}
               onInput={(e) => {
                 const colour = (e.currentTarget as HTMLInputElement).value;
-                state.theme.setM3Accent(colour)
+                state.theme.setM3Accent(colour);
               }}
               style={{
                 position: "absolute",
