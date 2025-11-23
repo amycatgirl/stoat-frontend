@@ -9,7 +9,7 @@ type Props = Omit<
   min?: number;
   max?: number;
   step?: number;
-  value: number;
+  value?: number;
   tickmarks?: boolean;
   labelFormatter?: (value: number) => string;
   onChange?: (event: { currentTarget: { value: number } }) => void;

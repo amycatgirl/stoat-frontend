@@ -34,6 +34,7 @@ export function InviteModal(props: DialogProps & Modals & { type: "invite" }) {
           <Match when={props.invite.type === "Server"}>
             <Row>
               <Avatar
+                roundness={50}
                 size={32}
                 src={
                   (props.invite as ServerPublicInvite).serverIcon?.previewUrl

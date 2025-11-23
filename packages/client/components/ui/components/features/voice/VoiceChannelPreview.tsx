@@ -19,6 +19,7 @@ import { InRoom } from "@revolt/rtc";
 import { Avatar, Ripple, typography } from "../../design";
 import { Row } from "../../layout";
 
+import { useState } from "@revolt/state";
 import { VoiceStatefulUserIcons } from "./VoiceStatefulUserIcons";
 
 /**
@@ -122,6 +123,8 @@ function CommonUser(props: {
   screenshare: boolean;
   isLive?: boolean;
 }) {
+  const state = useState();
+
   const [iconProps, rest] = splitProps(props, [
     "muted",
     "deafened",
@@ -149,7 +152,12 @@ function CommonUser(props: {
       }}
     >
       <Ripple />
-      <Avatar size={24} src={user().avatar} fallback={user().username} />{" "}
+      <Avatar
+        size={24}
+        shape={state.theme.avatarShape}
+        src={user().avatar}
+        fallback={user().username}
+      />{" "}
       <PreviewUsername>{user().username}</PreviewUsername>
       <Row gap="sm">
         <VoiceStatefulUserIcons {...iconProps} userId={rest.userId} />

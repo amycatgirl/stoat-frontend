@@ -68,6 +68,11 @@ export type TypeTheme = {
    * Spacing between message groups
    */
   messageGroupSpacing: number;
+
+  /**
+   * Custom amount of radii for avatars when custom shape is selected
+   */
+  customRadii: number;
 };
 
 export type SelectedTheme = Pick<
@@ -139,6 +144,7 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
       blur: true,
       messageSize: 14,
       messageGroupSpacing: 12,
+      customRadii: 50,
     };
   }
 
@@ -351,5 +357,20 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
    */
   set messageGroupSpacing(space: number) {
     this.set("messageGroupSpacing", space);
+  }
+
+  /**
+   * Get custom avatar roundness value
+   */
+  get customRadii() {
+    return this.get().customRadii;
+  }
+
+  /**
+   * Set custom avatar roundness value (between 0% and 50%)
+   */
+  set customRadii(radius: number) {
+    // clamp radius to a value between 0 and 50
+    this.set("customRadii", Math.min(Math.max(radius, 0), 50));
   }
 }

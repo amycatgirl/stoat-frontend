@@ -310,7 +310,7 @@ function Entry(
             <Match when={local.channel.type === "Group"}>
               <Avatar
                 size={32}
-                shape="rounded-square"
+                roundness={15}
                 fallback={local.channel.name}
                 src={local.channel.iconURL}
                 primaryContrast

@@ -22,7 +22,7 @@ export function EmojiPreviewModal(
         { text: <Trans>Close</Trans> },
       ]}
     >
-      <Avatar src={props.emoji.url} shape="rounded-square" />
+      <Avatar src={props.emoji.url} roundness={15} />
     </Dialog>
   );
 }

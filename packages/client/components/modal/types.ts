@@ -309,4 +309,7 @@ export type Modals =
     }
   | {
       type: "import_theme";
+    }
+  | {
+      type: "select_avatar_radius";
     };

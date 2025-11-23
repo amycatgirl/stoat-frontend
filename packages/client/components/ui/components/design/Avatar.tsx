@@ -4,6 +4,7 @@ import { styled } from "styled-system/jsx";
 
 import { Initials } from "../utils";
 
+import { useState } from "@revolt/state";
 import { Ripple } from "./Ripple";
 
 export type Props = {
@@ -14,8 +15,12 @@ export type Props = {
 
   /**
    * Avatar shape
+   * @deprecated Use roundness instead
    */
-  shape?: "circle" | "rounded-square";
+  shape?: "circle" | "rounded-square" | "sharp" | "custom";
+
+  // Override roundness
+  roundness?: number;
 
   /**
    * Image source
@@ -115,6 +120,8 @@ const FallbackBase = styled("div", {
  * Partially inspired by Adw.Avatar API, we allow users to specify a fallback component (usually just text) to display in case the URL is invalid.
  */
 export function Avatar(props: Props) {
+  const state = useState();
+
   return (
     <ParentBase
       // @ts-expect-error not typed for some reason
@@ -134,7 +141,13 @@ export function Avatar(props: Props) {
         height="32px"
         holepunch={props.holepunch}
       >
-        <Shape shape={props.shape}>
+        <Shape
+          style={{
+            "border-radius": `${
+              props.roundness ? props.roundness : state.theme.customRadii
+            }%`,
+          }}
+        >
           <Show when={props.interactive}>
             <Ripple />
           </Show>
@@ -190,19 +203,6 @@ const Shape = styled("div", {
     overflow: "hidden",
     width: "100%",
     height: "100%",
-  },
-  variants: {
-    shape: {
-      circle: {
-        borderRadius: "var(--borderRadius-circle)",
-      },
-      "rounded-square": {
-        borderRadius: "var(--borderRadius-md)",
-      },
-    },
-  },
-  defaultVariants: {
-    shape: "circle",
   },
 });
 

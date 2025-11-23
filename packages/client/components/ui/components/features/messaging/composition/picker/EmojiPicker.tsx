@@ -329,6 +329,7 @@ function ServerHeader(props: { server: Server }) {
   return (
     <Row align>
       <Avatar
+        roundness={50}
         size={24}
         src={props.server.animatedIconURL}
         fallback={props.server.name}

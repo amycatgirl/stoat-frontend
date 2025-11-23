@@ -126,7 +126,7 @@ export function EmojiList(props: { server: Server }) {
           {(emoji) => (
             <CategoryButton
               roundedIcon={false}
-              icon={<Avatar src={emoji.url} shape="rounded-square" />}
+              icon={<Avatar src={emoji.url} roundness={15} />}
               onClick={() => openModal({ type: "emoji_preview", emoji })}
             >
               <Column gap="none">

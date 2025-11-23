@@ -10,6 +10,7 @@ import {
   UnicodeEmoji,
   UnicodeEmojiPacks,
 } from "@revolt/markdown/emoji/UnicodeEmoji";
+import { useModals } from "@revolt/modal";
 import { useState } from "@revolt/state";
 import {
   Avatar,
@@ -30,12 +31,18 @@ import {
   MonospaceFonts,
 } from "@revolt/ui/themes/fonts";
 
+import SDCornerCircular from "../../../../../../src/svg/corner_circular.svg?component-solid";
+import SDCornerOther from "../../../../../../src/svg/corner_other.svg?component-solid";
+import SDCornerRounded from "../../../../../../src/svg/corner_rounded.svg?component-solid";
+import SDCornerSharp from "../../../../../../src/svg/corner_sharp.svg?component-solid";
+
 /**
  * All appearance options for the client
  */
 export function AppearanceMenu() {
   const user = useUser();
   const state = useState();
+  const { openModal } = useModals();
 
   return (
     <Column gap="lg">
@@ -289,6 +296,58 @@ export function AppearanceMenu() {
             </MessageContainer>
           </MessagePreview>
         </Preview>
+        <Text class="label">
+          <Trans>Profile picture shape</Trans>
+        </Text>
+        <Row justify="stretch">
+          <Button
+            size="lg"
+            group="standard"
+            groupActive={state.theme.customRadii === 0}
+            onPress={() => (state.theme.customRadii = 0)}
+          >
+            <Column align>
+              <SDCornerSharp />
+              <Trans>Sharp</Trans>
+            </Column>
+          </Button>
+          <Button
+            size="lg"
+            group="standard"
+            groupActive={state.theme.customRadii === 15}
+            onPress={() => (state.theme.customRadii = 15)}
+          >
+            <Column align>
+              <SDCornerRounded />
+              <Trans>Rounded</Trans>
+            </Column>
+          </Button>
+          <Button
+            size="lg"
+            group="standard"
+            groupActive={state.theme.customRadii === 50}
+            onPress={() => (state.theme.customRadii = 50)}
+          >
+            <Column align>
+              <SDCornerCircular />
+              <Trans>Circular</Trans>
+            </Column>
+          </Button>
+          <Button
+            size="lg"
+            group="standard"
+            groupActive={
+              (state.theme.customRadii > 0 && state.theme.customRadii < 15) ||
+              (state.theme.customRadii > 15 && state.theme.customRadii < 50)
+            }
+            onPress={() => openModal({ type: "select_avatar_radius" })}
+          >
+            <Column align>
+              <SDCornerOther />
+              <Trans>Custom</Trans>
+            </Column>
+          </Button>
+        </Row>
 
         <Text class="label">
           <Trans>Message Size</Trans>

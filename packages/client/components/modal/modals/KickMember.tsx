@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/solid-query";
 
 import { Avatar, Column, Dialog, DialogProps, Text } from "@revolt/ui";
 
+import { useState } from "@revolt/state";
 import { useModals } from "..";
 import { Modals } from "../types";
 
@@ -13,6 +14,7 @@ export function KickMemberModal(
   props: DialogProps & Modals & { type: "kick_member" },
 ) {
   const { showError } = useModals();
+  const state = useState();
 
   const kick = useMutation(() => ({
     mutationFn: () => props.member.kick(),

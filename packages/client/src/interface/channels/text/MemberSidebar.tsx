@@ -9,6 +9,7 @@ import { floatingUserMenus } from "@revolt/app/menus/UserContextMenu";
 import { useClient } from "@revolt/client";
 import { TextWithEmoji } from "@revolt/markdown";
 import { userInformation } from "@revolt/markdown/users";
+import { useState } from "@revolt/state";
 import {
   Avatar,
   Deferred,
@@ -365,6 +366,7 @@ const NameStatusStack = styled("div", {
  */
 function Member(props: { user?: User; member?: ServerMember }) {
   const { t } = useLingui();
+  const state = useState();
 
   /**
    * Create user information

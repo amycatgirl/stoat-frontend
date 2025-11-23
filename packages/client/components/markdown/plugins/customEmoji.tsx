@@ -61,6 +61,7 @@ export function RenderCustomEmoji(props: { id: string }) {
                           <Match when={server()}>
                             <Row align>
                               <Avatar
+                                roundness={50}
                                 size={14}
                                 src={server().animatedIconURL}
                               />

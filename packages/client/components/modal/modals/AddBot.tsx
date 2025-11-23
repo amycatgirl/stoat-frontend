@@ -144,6 +144,7 @@ export function AddBotModal(props: DialogProps & Modals & { type: "add_bot" }) {
               <Item selected={selected}>
                 <Ripple />
                 <Avatar
+                  roundness={50}
                   src={item.animatedIconURL}
                   fallback={item.name}
                   size={24}

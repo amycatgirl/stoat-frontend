@@ -5,6 +5,7 @@ import { User } from "stoat.js";
 import { styled } from "styled-system/jsx";
 
 import { useUsers } from "@revolt/markdown/users";
+import { useState } from "@revolt/state";
 import { Avatar, typography } from "@revolt/ui/components/design";
 import { OverflowingText } from "@revolt/ui/components/utils";
 
@@ -24,6 +25,8 @@ interface Props {
  * Display typing user information
  */
 export function TypingIndicator(props: Props) {
+  const state = useState();
+
   /**
    * Generate list of user IDs
    * @returns User IDs

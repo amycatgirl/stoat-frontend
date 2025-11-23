@@ -34,6 +34,7 @@ import {
 } from "@revolt/ui";
 import { Symbol } from "@revolt/ui/components/utils/Symbol";
 
+import { useState } from "@revolt/state";
 import { HeaderIcon } from "./common/CommonHeader";
 
 /**
@@ -277,6 +278,7 @@ function Entry(
   >,
 ) {
   const { openModal } = useModals();
+  const state = useState();
   const [local, remote] = splitProps(props, ["user"]);
 
   return (
@@ -290,6 +292,7 @@ function Entry(
       <ListItem>
         <Avatar
           slot="icon"
+          shape={state.theme.avatarShape}
           size={36}
           src={local.user.animatedAvatarURL}
           holepunch={

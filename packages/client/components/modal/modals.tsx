@@ -46,6 +46,7 @@ import { OnboardingModal } from "./modals/Onboarding";
 import { PolicyChangeModal } from "./modals/PolicyChange";
 import { RenameSessionModal } from "./modals/RenameSession";
 import { ReportContentModal } from "./modals/ReportContent";
+import { SelectAvatarRadiusModal } from "./modals/SelectAvatarRadius";
 import { ServerIdentityModal } from "./modals/ServerIdentity";
 import { ServerInfoModal } from "./modals/ServerInfo";
 import { SettingsModal } from "./modals/Settings";
@@ -177,6 +178,8 @@ export function RenderModal(props: ActiveModal & { onClose: () => void }) {
       return <UserProfileMutualFriendsModal {...modalProps} />;
     case "user_profile_mutual_groups":
       return <UserProfileMutualGroupsModal {...modalProps} />;
+    case "select_avatar_radius":
+      return <SelectAvatarRadiusModal {...modalProps} />;
 
     default:
       console.error(

@@ -16,6 +16,7 @@ import {
   MenuItem,
 } from "@revolt/ui";
 
+import { useState } from "@revolt/state";
 import { useModals } from "..";
 import { Modals } from "../types";
 
@@ -54,6 +55,7 @@ export function ReportContentModal(
 ) {
   const { t } = useLingui();
   const { showError } = useModals();
+  const state = useState();
 
   const strings: Record<
     API.ContentReportReason | API.UserReportReason,
@@ -169,6 +171,7 @@ export function ReportContentModal(
             ) : props.target instanceof Server ? (
               <Column align>
                 <Avatar
+                  roundness={50}
                   src={props.target.animatedIconURL}
                   fallback={<Initials input={props.target.name} />}
                   size={64}
