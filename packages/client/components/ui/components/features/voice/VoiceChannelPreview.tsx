@@ -152,11 +152,7 @@ function CommonUser(props: {
       }}
     >
       <Ripple />
-      <Avatar
-        size={24}
-        src={user().avatar}
-        fallback={user().username}
-      />{" "}
+      <Avatar size={24} src={user().avatar} fallback={user().username} />{" "}
       <PreviewUsername>{user().username}</PreviewUsername>
       <Row gap="sm">
         <VoiceStatefulUserIcons {...iconProps} userId={rest.userId} />
