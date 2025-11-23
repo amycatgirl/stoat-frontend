@@ -154,7 +154,6 @@ function CommonUser(props: {
       <Ripple />
       <Avatar
         size={24}
-        shape={state.theme.avatarShape}
         src={user().avatar}
         fallback={user().username}
       />{" "}

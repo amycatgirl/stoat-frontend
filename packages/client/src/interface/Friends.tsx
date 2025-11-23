@@ -292,7 +292,6 @@ function Entry(
       <ListItem>
         <Avatar
           slot="icon"
-          shape={state.theme.avatarShape}
           size={36}
           src={local.user.animatedAvatarURL}
           holepunch={
