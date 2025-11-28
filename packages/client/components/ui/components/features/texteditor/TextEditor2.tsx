@@ -256,7 +256,7 @@ const editor = css({
 
   "& .cm-editor": {
     width: "100%",
-    alignSelf: "center"
+    alignSelf: "center",
   },
 
   "& .cm-editor.cm-focused": {
