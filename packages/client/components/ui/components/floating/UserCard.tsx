@@ -1,12 +1,29 @@
-import { JSX } from "solid-js";
+import { JSX, Match, Switch } from "solid-js";
 
 import { useQuery } from "@tanstack/solid-query";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
 import { useModals } from "@revolt/modal";
+import { Column, Row, typography } from "@revolt/ui";
 
+import { Trans } from "@lingui-solid/solid/macro";
+import { Symbol } from "@revolt/ui/components/utils/Symbol";
 import { Profile } from "../features";
+
+enum USER_FLAGS {
+  SUSPENDED_UNTIL = 1 << 0,
+  DELETED = 1 << 1,
+  BANNED = 1 << 2,
+  SPAM = 1 << 3,
+}
+
+/**
+ * Check whether the user has a flag
+ */
+function hasFlag(a: number, b: number) {
+  return (a & b) !== 0;
+}
 
 /**
  * Base element for the card
@@ -52,22 +69,52 @@ export function UserCard(
         e.stopImmediatePropagation();
       }}
     >
-      <Grid>
-        <Profile.Banner
-          width={2}
-          user={props.user}
-          member={props.member}
-          bannerUrl={query.data?.animatedBannerURL}
-          onClick={openFull}
-        />
+      <Switch
+        fallback={
+          <Grid>
+            <Profile.Banner
+              width={2}
+              user={props.user}
+              member={props.member}
+              bannerUrl={query.data?.animatedBannerURL}
+              onClick={openFull}
+            />
 
-        <Profile.Actions user={props.user} member={props.member} width={2} />
-        <Profile.Roles member={props.member} />
-        <Profile.Badges user={props.user} />
-        <Profile.Status user={props.user} />
-        <Profile.Joined user={props.user} member={props.member} />
-        <Profile.Bio content={query.data?.content} onClick={openFull} />
-      </Grid>
+            <Profile.Actions
+              user={props.user}
+              member={props.member}
+              width={2}
+            />
+            <Profile.Roles member={props.member} />
+            <Profile.Badges user={props.user} />
+            <Profile.Status user={props.user} />
+            <Profile.Joined user={props.user} member={props.member} />
+            <Profile.Bio content={query.data?.content} onClick={openFull} />
+          </Grid>
+        }
+      >
+        <Match
+          when={hasFlag(
+            props.user.flags,
+            USER_FLAGS.BANNED + USER_FLAGS.SPAM + USER_FLAGS.SUSPENDED_UNTIL,
+          )}
+        >
+          <Centre>
+            <Column align gap="lg">
+              <Row justify>
+                <Symbol size={32}>security</Symbol>
+              </Row>
+
+              <CentredText>
+                <Trans>
+                  User {props.user.username}#{props.user.discriminator} is
+                  suspended
+                </Trans>
+              </CentredText>
+            </Column>
+          </Centre>
+        </Match>
+      </Switch>
     </div>
   );
 }
@@ -78,5 +125,22 @@ const Grid = styled("div", {
     gap: "var(--gap-md)",
     padding: "var(--gap-md)",
     gridTemplateColumns: "repeat(2, 1fr)",
+  },
+});
+
+const Centre = styled("div", {
+  base: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexGrow: "1",
+    height: "100%",
+  },
+});
+
+const CentredText = styled("span", {
+  base: {
+    ...typography.raw({ class: "title", size: "small" }),
+    textAlign: "center",
   },
 });
