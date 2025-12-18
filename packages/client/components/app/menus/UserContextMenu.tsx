@@ -77,7 +77,7 @@ export function UserContextMenu(props: {
    * Mention the user
    */
   function mention() {
-    state.draft.insertText(props.user.toString());
+    state.draft._setNodeReplacement([props.user.toString()]);
   }
 
   /**
@@ -434,6 +434,7 @@ export function floatingUserMenus(
           user={user}
           member={member}
           contextMessage={contextMessage}
+          channel={contextMessage?.channel}
         />
       );
     },
