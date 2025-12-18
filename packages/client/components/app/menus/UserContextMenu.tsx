@@ -77,6 +77,7 @@ export function UserContextMenu(props: {
    * Mention the user
    */
   function mention() {
+    if (!state.draft._setNodeReplacement) return;
     state.draft._setNodeReplacement([props.user.toString()]);
   }
 
