@@ -163,48 +163,48 @@ export default function ServerOverview(props: ServerSettingsProps) {
 
     if (editGroup.controls.sys_user_joined.isDirty) {
       if (
-        editGroup.controls.sys_user_joined == "none" &&
-        changes.system_messages.user_joined
+        editGroup.controls.sys_user_joined.value == "none" &&
+        changes.system_messages?.user_joined
       ) {
         delete changes.system_messages.user_joined;
       } else {
-        changes.system_messages.user_joined =
+        changes.system_messages!.user_joined =
           editGroup.controls.sys_user_joined.value;
       }
     }
 
     if (editGroup.controls.sys_user_left.isDirty) {
       if (
-        editGroup.controls.sys_user_left == "none" &&
-        changes.system_messages.user_left
+        editGroup.controls.sys_user_left.value == "none" &&
+        changes.system_messages?.user_left
       ) {
         delete changes.system_messages.user_left;
       } else {
-        changes.system_messages.user_left =
+        changes.system_messages!.user_left =
           editGroup.controls.sys_user_left.value;
       }
     }
 
     if (editGroup.controls.sys_user_kicked.isDirty) {
       if (
-        editGroup.controls.sys_user_kicked == "none" &&
-        changes.system_messages.user_kicked
+        editGroup.controls.sys_user_kicked.value == "none" &&
+        changes.system_messages?.user_kicked
       ) {
         delete changes.system_messages.user_kicked;
       } else {
-        changes.system_messages.user_kicked =
+        changes.system_messages!.user_kicked =
           editGroup.controls.sys_user_kicked.value;
       }
     }
 
     if (editGroup.controls.sys_user_banned.isDirty) {
       if (
-        editGroup.controls.sys_user_banned == "none" &&
-        changes.system_messages.user_banned
+        editGroup.controls.sys_user_banned.value == "none" &&
+        changes.system_messages?.user_banned
       ) {
         delete changes.system_messages.user_banned;
       } else {
-        changes.system_messages.user_banned =
+        changes.system_messages!.user_banned =
           editGroup.controls.sys_user_banned.value;
       }
     }
