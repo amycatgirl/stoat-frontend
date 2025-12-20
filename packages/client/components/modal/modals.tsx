@@ -49,6 +49,7 @@ import { ReportContentModal } from "./modals/ReportContent";
 import { ServerIdentityModal } from "./modals/ServerIdentity";
 import { ServerInfoModal } from "./modals/ServerInfo";
 import { SettingsModal } from "./modals/Settings";
+import { ResetBotTokenModal } from "./modals/ResetBotToken";
 import { SignOutSessionsModal } from "./modals/SignOutSessions";
 import { SignedOutModal } from "./modals/SignedOut";
 import { UserProfileModal } from "./modals/UserProfile";
@@ -177,6 +178,8 @@ export function RenderModal(props: ActiveModal & { onClose: () => void }) {
       return <UserProfileMutualFriendsModal {...modalProps} />;
     case "user_profile_mutual_groups":
       return <UserProfileMutualGroupsModal {...modalProps} />;
+    case "reset_bot_token":
+      return <ResetBotTokenModal {...modalProps} />;
 
     default:
       console.error(
