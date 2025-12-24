@@ -68,6 +68,11 @@ export type TypeTheme = {
    * Spacing between message groups
    */
   messageGroupSpacing: number;
+
+  /**
+   *   Custom CSS
+   */
+   customCSS: string;
 };
 
 export type SelectedTheme = Pick<
@@ -139,6 +144,7 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
       blur: true,
       messageSize: 14,
       messageGroupSpacing: 12,
+      customCSS: "",
     };
   }
 
@@ -367,5 +373,19 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
    */
   set messageGroupSpacing(space: number) {
     this.set("messageGroupSpacing", space);
+  }
+
+  /**
+   * Get current custom CSS styles
+   */
+  get customCSS() {
+    return this.get().customCSS;
+  }
+
+  /**
+   * Set custom CSS styles
+   */
+  set customCSS(style: string) {
+    this.set("customCSS", style);
   }
 }
