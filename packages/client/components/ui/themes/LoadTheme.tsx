@@ -10,6 +10,7 @@ import {
 import { Masks } from "./Masks";
 import { FONTS, MONOSPACE_FONTS } from "./fonts";
 import { legacyThemeUnsetShim } from "./legacyThemeGeneratorCode";
+import { Portal } from "solid-js/web";
 
 /**
  * Component for loading theme variables into root
@@ -46,5 +47,10 @@ export function LoadTheme() {
     }
   });
 
-  return <Masks />;
+  return <>
+            <Masks />
+            <Portal mount={document.body}>
+              <style id="custom-css" innerHTML={state.theme.customCSS}></style>
+            </Portal>
+        </>;
 }
