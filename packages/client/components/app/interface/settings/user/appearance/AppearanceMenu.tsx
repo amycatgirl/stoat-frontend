@@ -29,6 +29,7 @@ import {
   MONOSPACE_FONT_KEYS,
   MonospaceFonts,
 } from "@revolt/ui/themes/fonts";
+import { MonacoEditor } from "@revolt/ui/components/features/monaco/Monaco";
 
 /**
  * All appearance options for the client
@@ -378,6 +379,12 @@ export function AppearanceMenu() {
             {(pack) => <EmojiPack pack={pack} />}
           </For>
         </TextField.Select>
+        <Text class="label">
+          <Trans>Custom CSS (WIP)</Trans>
+        </Text>
+        <MonacoEditor defaultValue={state.theme.customCSS} onChange={(_, model) => {
+          state.theme.customCSS = model?.getValue() ?? state.theme.customCSS
+        }} />
       </Column>
     </Column>
   );
