@@ -20,6 +20,7 @@ import MdRateReview from "@material-design-icons/svg/outlined/rate_review.svg?co
 import MdScience from "@material-design-icons/svg/outlined/science.svg?component-solid";
 import MdSmartToy from "@material-design-icons/svg/outlined/smart_toy.svg?component-solid";
 import MdVerifiedUser from "@material-design-icons/svg/outlined/verified_user.svg?component-solid";
+import MdCoffee from "@material-design-icons/svg/outlined/coffee.svg?component-solid";
 import MdWorkspacePremium from "@material-design-icons/svg/outlined/workspace_premium.svg?component-solid";
 
 import pkg from "../../../../../../package.json";
@@ -180,11 +181,11 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               icon: <MdRateReview {...iconSize(20)} />,
               title: <Trans>Feedback</Trans>,
             },
-            // {
-            //   href: "https://wiki.revolt.chat/notes/project/financial-support/",
-            //   icon: <MdLocalCafe {...iconSize(20)} />,
-            //   title: <Trans>Donate</Trans>,
-            // },
+            {
+              href: "https://wiki.revolt.chat/notes/project/financial-support/",
+              icon: <MdCoffee {...iconSize(20)} />,
+              title: <Trans>Donate</Trans>,
+            },
           ],
         },
         {
