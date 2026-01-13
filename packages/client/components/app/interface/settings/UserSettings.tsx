@@ -181,11 +181,6 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               icon: <MdRateReview {...iconSize(20)} />,
               title: <Trans>Feedback</Trans>,
             },
-            {
-              href: "https://wiki.revolt.chat/notes/project/financial-support/",
-              icon: <MdCoffee {...iconSize(20)} />,
-              title: <Trans>Donate</Trans>,
-            },
           ],
         },
         {
@@ -280,6 +275,11 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               id: "advanced",
               icon: <MdScience {...iconSize(20)} />,
               title: <Trans>Advanced</Trans>,
+            },
+            {
+              href: "https://wiki.revolt.chat/notes/project/financial-support/",
+              icon: <MdCoffee {...iconSize(20)} />,
+              title: <Trans>Donate</Trans>,
             },
             {
               id: "logout",
