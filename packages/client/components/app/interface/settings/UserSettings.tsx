@@ -277,7 +277,7 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               title: <Trans>Advanced</Trans>,
             },
             {
-              href: "https://wiki.revolt.chat/notes/project/financial-support/",
+              href: "https://ko-fi.com/stoatchat",
               icon: <MdCoffee {...iconSize(20)} />,
               title: <Trans>Donate</Trans>,
             },
