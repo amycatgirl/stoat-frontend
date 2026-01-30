@@ -130,6 +130,7 @@ export const ServerList = (props: Props) => {
           }}
         >
           <Avatar
+            shape="circle"
             size={42}
             fallback={<MdHome />}
             holepunch={homeNotifications() ? "top-right" : undefined}
@@ -261,6 +262,7 @@ export const ServerList = (props: Props) => {
                   <Avatar
                     size={42}
                     src={entry.item.iconURL}
+                    shape="rounded-square"
                     holepunch={
                       entry.item.mentions.length ? "top-right" : "none"
                     }
@@ -292,7 +294,7 @@ export const ServerList = (props: Props) => {
             class={entryContainer()}
             onClick={() => props.onCreateOrJoinServer()}
           >
-            <Avatar size={42} fallback={<MdAdd />} />
+            <Avatar size={42} fallback={<MdAdd />} shape="circle" />
           </a>
         </Tooltip>
         <Show when={CONFIGURATION.IS_STOAT}>
@@ -301,7 +303,7 @@ export const ServerList = (props: Props) => {
               href={state.layout.getLastActiveDiscoverPath()}
               class={entryContainer()}
             >
-              <Avatar size={42} fallback={<MdExplore />} />
+              <Avatar size={42} fallback={<MdExplore />} shape="circle" />
             </a>
           </Tooltip>
         </Show>
@@ -314,7 +316,12 @@ export const ServerList = (props: Props) => {
           class={entryContainer()}
           onClick={() => openModal({ type: "settings", config: "user" })}
         >
-          <Avatar size={42} fallback={<MdSettings />} interactive />
+          <Avatar
+            size={42}
+            fallback={<MdSettings />}
+            interactive
+            shape="circle"
+          />
         </a>
       </Tooltip>
     </ServerListBase>
