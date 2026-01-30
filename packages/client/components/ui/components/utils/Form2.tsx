@@ -23,6 +23,7 @@ import {
   Text,
   TextField,
   typography,
+  Slider,
 } from "../design";
 import { TextEditor2 } from "../features/texteditor/TextEditor2";
 import { Row } from "../layout";
@@ -402,6 +403,28 @@ function FormVirtualSelect<K, T>(props: {
 }
 
 /**
+ * Form slider
+ */
+const FormSlider = (
+  props: {
+    control: IFormControl<number>;
+  } & Omit<ComponentProps<typeof Slider>, "value">,
+) => {
+  const [local, remote] = splitProps(props, ["control"]);
+
+  return (
+    <Slider
+      {...remote}
+      value={local.control.value}
+      onInput={(event) => {
+        local.control.setValue(event.currentTarget.value);
+        local.control.markDirty(true);
+      }}
+    />
+  );
+};
+
+/**
  * Form reset button
  */
 const FormResetButton = (props: {
@@ -532,6 +555,7 @@ export const Form2 = {
   Radio: FormRadio,
   ButtonGroup: FormButtonGroup,
   VirtualSelect: FormVirtualSelect,
+  Slider: FormSlider,
   Reset: FormResetButton,
   Submit: FormSubmitButton,
   canSubmit,
