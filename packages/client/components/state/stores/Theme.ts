@@ -68,6 +68,11 @@ export type TypeTheme = {
    * Spacing between message groups
    */
   messageGroupSpacing: number;
+
+  /**
+   * Avatar radius
+   */
+  avatarRadius: number;
 };
 
 export type SelectedTheme = Pick<
@@ -85,6 +90,12 @@ export type SelectedTheme = Pick<
   contrast: number;
   variant: TypeTheme["m3Variant"];
 };
+
+/**
+ * Clamps a value between min and max
+ */
+const clamp = (value: number, min: number, max: number): number =>
+  Math.min(Math.max(value, min), max);
 
 /**
  * Manages theme information
@@ -139,6 +150,7 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
       blur: true,
       messageSize: 14,
       messageGroupSpacing: 12,
+      avatarRadius: 50,
     };
   }
 
@@ -193,6 +205,10 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
 
     if (typeof input.messageGroupSpacing === "number") {
       data.messageGroupSpacing = input.messageGroupSpacing;
+    }
+
+    if (typeof input.avatarRadius === "number") {
+      data.avatarRadius = clamp(input.avatarRadius, 0, 50);
     }
 
     return data;
@@ -367,5 +383,19 @@ export class Theme extends AbstractStore<"theme", TypeTheme> {
    */
   set messageGroupSpacing(space: number) {
     this.set("messageGroupSpacing", space);
+  }
+
+  /**
+   * Get the current avatar radius
+   */
+  get avatarRadius() {
+    return this.get().avatarRadius;
+  }
+
+  /**
+   * Set avatar radius
+   */
+  set avatarRadius(radius: number) {
+    this.set("avatarRadius", radius);
   }
 }
