@@ -6,6 +6,7 @@ import { type ActiveModal } from ".";
 import { AddBotModal } from "./modals/AddBot";
 import { AddFriendModal } from "./modals/AddFriend";
 import { AddMembersToGroupModal } from "./modals/AddMembersToGroup";
+import { AvatarRadiusModal } from "./modals/AvatarRadius";
 import { BanMemberModal } from "./modals/BanMember";
 import { BanNonMemberModal } from "./modals/BanNonMember";
 import { ChangelogModal } from "./modals/Changelog";
@@ -183,6 +184,8 @@ export function RenderModal(props: ActiveModal & { onClose: () => void }) {
       return <ResetBotTokenModal {...modalProps} />;
     case "edit_category":
       return <EditCategoryModal {...modalProps} />;
+    case "avatar_radius":
+      return <AvatarRadiusModal {...modalProps} />;
 
     default:
       console.error(
