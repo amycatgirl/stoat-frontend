@@ -14,7 +14,7 @@ import { VirtualContainer } from "@minht11/solid-virtual-container";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { Button, Checkbox, Radio2, Text, TextField } from "../design";
+import { Button, Checkbox, Radio2, Slider, Text, TextField } from "../design";
 import { TextEditor2 } from "../features/texteditor/TextEditor2";
 
 import { FileInput } from "./files";
@@ -302,6 +302,28 @@ function FormVirtualSelect<K, T>(props: {
 }
 
 /**
+ * Form slider
+ */
+const FormSlider = (
+  props: {
+    control: IFormControl<number>;
+  } & Omit<ComponentProps<typeof Slider>, "value">,
+) => {
+  const [local, remote] = splitProps(props, ["control"]);
+
+  return (
+    <Slider
+      {...remote}
+      value={local.control.value}
+      onInput={(event) => {
+        local.control.setValue(event.currentTarget.value);
+        local.control.markDirty(true);
+      }}
+    />
+  );
+};
+
+/**
  * Form reset button
  */
 const FormResetButton = (props: {
@@ -430,6 +452,7 @@ export const Form2 = {
   Checkbox: FormCheckbox,
   Radio: FormRadio,
   VirtualSelect: FormVirtualSelect,
+  Slider: FormSlider,
   Reset: FormResetButton,
   Submit: FormSubmitButton,
   canSubmit,
