@@ -216,7 +216,7 @@ const Shape = styled("div", {
         borderRadius: "var(--borderRadius-circle)",
       },
       "rounded-square": {
-        borderRadius: "var(--borderRadius-md)",
+        borderRadius: "var(--borderRadius-sm)",
       },
     },
   },
