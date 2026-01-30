@@ -347,4 +347,7 @@ export type Modals =
         image?: string;
       }[];
       onCancel: () => void;
+    }
+  | {
+      type: "avatar_radius";
     };
