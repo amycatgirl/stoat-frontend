@@ -1,4 +1,12 @@
-import { For, Match, Show, Switch, createSignal } from "solid-js";
+import {
+  For,
+  Match,
+  Show,
+  Suspense,
+  Switch,
+  createSignal,
+  lazy,
+} from "solid-js";
 
 import { Trans } from "@lingui-solid/solid/macro";
 import { css } from "styled-system/css";
@@ -30,10 +38,12 @@ import {
   MONOSPACE_FONT_KEYS,
   MonospaceFonts,
 } from "@revolt/ui/themes/fonts";
-import { MonacoEditor } from "@revolt/ui/components/features/monaco/Monaco";
 
 import MDPalette from "@material-design-icons/svg/outlined/palette.svg?component-solid";
 
+const MonacoEditor = lazy(
+  () => import("@revolt/ui/components/features/monaco/Monaco"),
+);
 /**
  * All appearance options for the client
  */
@@ -412,9 +422,15 @@ export function AppearanceMenu() {
         <Text class="label">
           <Trans>Custom CSS (WIP)</Trans>
         </Text>
-        <MonacoEditor defaultValue={state.theme.customCSS} onChange={(_, model) => {
-          state.theme.customCSS = model?.getValue() ?? state.theme.customCSS
-        }} />
+        <Suspense>
+          <MonacoEditor
+            defaultValue={state.theme.customCSS}
+            onChange={(_, model) => {
+              state.theme.customCSS =
+                model?.getValue() ?? state.theme.customCSS;
+            }}
+          />
+        </Suspense>
       </Column>
     </Column>
   );
