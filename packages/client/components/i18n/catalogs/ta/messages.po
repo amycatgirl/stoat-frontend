@@ -510,6 +510,7 @@ msgstr ""
 #: components/modal/modals/DeleteBot.tsx:34
 #: components/modal/modals/BanNonMember.tsx:43
 #: components/modal/modals/BanMember.tsx:43
+#: components/modal/modals/AvatarRadius.tsx:29
 #: components/modal/modals/AddBot.tsx:87
 #: components/auth/src/flows/FlowLogin.tsx:126
 msgid "Cancel"
@@ -602,7 +603,7 @@ msgstr ""
 msgid "Channels"
 msgstr "பங்கேற்பாளர்கள்"
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:380
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:435
 msgid "Chat Input"
 msgstr ""
 
@@ -610,8 +611,16 @@ msgstr ""
 msgid "Check your mail!"
 msgstr "உங்கள் மின்னஞ்சல் சரிபார்க்கவும்!"
 
+#: components/modal/modals/AvatarRadius.tsx:27
+msgid "Choose radius"
+msgstr ""
+
 #: components/modal/modals/Onboarding.tsx:40
 msgid "Choose username"
+msgstr ""
+
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:385
+msgid "Circular"
 msgstr ""
 
 #: src/interface/navigation/servers/UserMenu.tsx:242
@@ -906,6 +915,10 @@ msgstr "தற்போதைய கடவுச்சொல்"
 msgid "Current Session"
 msgstr ""
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:398
+msgid "Custom"
+msgstr ""
+
 #: components/modal/modals/CustomStatus.tsx:65
 msgid "Custom status"
 msgstr ""
@@ -918,7 +931,7 @@ msgstr ""
 msgid "Customisation"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:72
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:78
 msgid "Dark"
 msgstr ""
 
@@ -1048,7 +1061,7 @@ msgstr ""
 msgid "Discover Stoat"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:285
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:291
 msgid "Display & Text"
 msgstr ""
 
@@ -1161,7 +1174,7 @@ msgstr "மின்னஞ்சல்"
 msgid "Emoji Name"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:396
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:451
 msgid "Emoji Pack (affects your messages only)"
 msgstr ""
 
@@ -1181,7 +1194,7 @@ msgstr ""
 msgid "Enable Desktop Notifications"
 msgstr "டெஸ்க்டாப் அறிவிப்புகளை இயக்கவும்."
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:289
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:295
 msgid "Enable transparency glass/blur effects (slow on older machines)"
 msgstr ""
 
@@ -1290,7 +1303,7 @@ msgstr ""
 msgid "Friends"
 msgstr "நண்பர்கள்"
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:277
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:283
 msgid "Fruit Salad"
 msgstr ""
 
@@ -1388,7 +1401,7 @@ msgstr ""
 msgid "Here is your new invite code: <0>{0}</0>"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:202
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:208
 msgid "High Contrast"
 msgstr ""
 
@@ -1428,7 +1441,7 @@ msgstr ""
 msgid "Instead of closing, Stoat will hide in your tray."
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:349
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:404
 msgid "Interface Font"
 msgstr ""
 
@@ -1581,7 +1594,7 @@ msgstr ""
 msgid "Let us know how we can improve our app by giving us feedback."
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:65
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:71
 msgid "Light"
 msgstr ""
 
@@ -1728,7 +1741,7 @@ msgstr ""
 msgid "Message {0}"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:337
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:343
 msgid "Message Group Spacing"
 msgstr ""
 
@@ -1744,7 +1757,7 @@ msgstr "செய்தி பெறப்பட்டது"
 msgid "Message Sent"
 msgstr "தகவல் அனுப்பப்பட்டது"
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:324
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:330
 msgid "Message Size"
 msgstr ""
 
@@ -1765,15 +1778,15 @@ msgstr ""
 msgid "Missing permission"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:213
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:219
 msgid "Monochrome"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:364
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:419
 msgid "Monospace Font"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:194
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:200
 msgid "More Contrast"
 msgstr ""
 
@@ -1807,11 +1820,11 @@ msgstr ""
 msgid "Mute Server"
 msgstr ""
 
-#: src/interface/navigation/servers/ServerList.tsx:235
+#: src/interface/navigation/servers/ServerList.tsx:236
 msgid "Muted"
 msgstr "முடக்கப்பட்டது"
 
-#: src/interface/navigation/servers/ServerList.tsx:237
+#: src/interface/navigation/servers/ServerList.tsx:238
 #: components/app/menus/ServerContextMenu.tsx:186
 #: components/app/menus/shared/NotificationContextMenu.tsx:43
 msgid "Muted until <0/>"
@@ -1838,7 +1851,7 @@ msgstr "என் போட்ஸ்"
 msgid "Name"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:221
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:227
 msgid "Neutral"
 msgstr ""
 
@@ -1882,7 +1895,7 @@ msgstr ""
 msgid "None"
 msgstr "ஒன்றுமில்லை"
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:186
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:192
 msgid "Normal"
 msgstr ""
 
@@ -2065,6 +2078,10 @@ msgstr ""
 msgid "Profile Bio"
 msgstr ""
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:355
+msgid "Profile Picture shape"
+msgstr ""
+
 #: components/modal/modals/ReportContent.tsx:68
 msgid "Promotes harm"
 msgstr ""
@@ -2124,7 +2141,7 @@ msgstr ""
 msgid "Recovery Codes"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:178
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:184
 msgid "Reduced"
 msgstr ""
 
@@ -2216,7 +2233,7 @@ msgstr ""
 msgid "Resend verification"
 msgstr "சரிபார்ப்பு மீண்டும் அனுப்பிவும்"
 
-#: components/ui/components/utils/Form2.tsx:321
+#: components/ui/components/utils/Form2.tsx:343
 #: components/modal/modals/ResetBotToken.tsx:29
 #: components/modal/modals/MFARecovery.tsx:64
 #: components/auth/src/flows/FlowReset.tsx:44
@@ -2272,6 +2289,10 @@ msgstr ""
 #: components/app/interface/settings/ServerSettings.tsx:139
 msgid "Roles"
 msgstr "பாத்திரங்கள்"
+
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:375
+msgid "Rounded"
+msgstr ""
 
 #: components/modal/modals/ServerIdentity.tsx:77
 #: components/modal/modals/CustomStatus.tsx:50
@@ -2448,11 +2469,15 @@ msgstr "பலர் தட்டச்சு செய்கிறார்க�
 msgid "Share camera or screen in voice call"
 msgstr ""
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:365
+msgid "Sharp"
+msgstr ""
+
 #: components/app/interface/settings/user/Native.tsx:125
 msgid "Show corrections and suggestions as you type."
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:392
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:447
 msgid "Show send message button"
 msgstr ""
 
@@ -2577,7 +2602,7 @@ msgstr ""
 msgid "Sync your currently chosen language."
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:79
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:85
 msgid "System"
 msgstr ""
 
@@ -2707,7 +2732,7 @@ msgstr ""
 msgid "Toggle main sidebar"
 msgstr ""
 
-#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:229
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx:235
 msgid "Tonal Spot"
 msgstr ""
 
@@ -2767,6 +2792,10 @@ msgstr ""
 
 #: components/app/interface/settings/channel/permissions/ChannelPermissionsEditor.tsx:308
 msgid "Upload Files"
+msgstr ""
+
+#: components/modal/modals/AvatarRadius.tsx:31
+msgid "Use"
 msgstr ""
 
 #: components/modal/modals/JoinServer.tsx:73
