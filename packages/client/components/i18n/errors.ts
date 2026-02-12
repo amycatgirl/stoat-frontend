@@ -111,7 +111,7 @@ export function useError() {
         case "LockedOut":
           return t`You have been locked out for entering a wrong password multiple times. Please wait a couple minutes and try again.`;
         case "CompromisedPassword":
-          return t`This password has been compromised before, please use another password.`;
+          return t`This password has previously appeared in security leaks, please use another password.`;
         case "UnverifiedAccount":
           return t`This account is not activated! Please check your account's inbox and try again.`;
         case "TotpAlreadyEnabled":

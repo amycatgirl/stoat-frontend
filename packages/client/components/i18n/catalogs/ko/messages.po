@@ -2688,7 +2688,7 @@ msgid "This message is empty and has not been sent."
 msgstr ""
 
 #: components/i18n/errors.ts
-msgid "This password has been compromised before, please use another password."
+msgid "This password has previously appeared in security leaks, please use another password."
 msgstr ""
 
 #: components/app/interface/settings/server/Overview.tsx
