@@ -80,7 +80,7 @@ export function RenderAnchor(
         "https://app.revolt.chat",
         "https://revolt.chat",
         // new
-        "https://stoat.chat",
+        "https://stoat.chat/app",
       ].includes(url.origin)
     ) {
       const client = useClient();
