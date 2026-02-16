@@ -29,7 +29,7 @@ export function VoiceCallCardPreview(props: { channel: Channel }) {
   }
 
   return (
-    <Preview onClick={() => voice.connect(props.channel)}>
+    <Preview class="callPreview" onClick={() => voice.connect(props.channel)}>
       <Ripple />
       <Row>
         <For each={users()} fallback={<Symbol size={24}>voice_chat</Symbol>}>

@@ -279,7 +279,7 @@ function VoiceCallCard(props: { channel: Channel }) {
   const inCall = () => voice.channel()?.id === props.channel.id;
 
   return (
-    <Base>
+    <Base class="callCard">
       <Card active={inCall()}>
         <Show
           when={inCall()}

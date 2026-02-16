@@ -33,7 +33,7 @@ import { VoiceCallCardStatus } from "./VoiceCallCardStatus";
  */
 export function VoiceCallCardActiveRoom() {
   return (
-    <View>
+    <View class="activeRoomView">
       <Call>
         <InRoom>
           <Participants />

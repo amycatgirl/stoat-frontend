@@ -133,7 +133,7 @@ function CommonUser(props: {
 
   return (
     <div
-      class={previewUser({ speaking: rest.speaking })}
+      class={"participant " + previewUser({ speaking: rest.speaking })}
       use:floating={{
         userCard: {
           user: user().user!,
