@@ -20,11 +20,14 @@ export function ColouredText(props: {
           style={{
             background: props.colour!,
           }}
-          class={css({
-            backgroundClip: "text !important",
-            WebkitTextFillColor: "transparent",
-            textDecoration: "none",
-          })}
+          class={
+            "colour_wrapper " +
+            css({
+              backgroundClip: "text !important",
+              WebkitTextFillColor: "transparent",
+              textDecoration: "none",
+            })
+          }
           children={props.children}
         />
       </Match>
