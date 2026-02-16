@@ -37,7 +37,7 @@ export function GifPicker() {
   const fliterLowercase = () => filter().toLowerCase();
 
   return (
-    <Stack>
+    <Stack class="picker gif">
       <TextField
         autoFocus
         variant="filled"
@@ -165,6 +165,7 @@ const CategoryItem = (props: {
 
   return (
     <Category
+      class="category"
       style={{
         ...(props.style as object),
         "background-image": `linear-gradient(to right, #0006, #0006), url("${props.item.t === 0 ? props.item.category.image : props.item.gif?.url}")`,
@@ -262,6 +263,7 @@ const GifItem = (props: {
 
   return (
     <Gif
+      class="item"
       loop
       autoplay
       muted
