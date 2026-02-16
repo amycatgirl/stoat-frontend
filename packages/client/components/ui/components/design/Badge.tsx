@@ -17,7 +17,7 @@ interface Props {
  */
 export function Badge(props: Props) {
   return (
-    <mdui-badge slot={props.slot ?? "badge"} class={badge()}>
+    <mdui-badge slot={props.slot ?? "badge"} class={"mdui-badge " + badge()}>
       {props.children}
     </mdui-badge>
   );

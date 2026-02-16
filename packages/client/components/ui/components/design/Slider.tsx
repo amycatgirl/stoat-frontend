@@ -37,5 +37,5 @@ export function Slider(props: Props) {
     }),
   );
 
-  return <mdui-slider ref={setRef} {...rest} />;
+  return <mdui-slider class="slider" ref={setRef} {...rest} />;
 }

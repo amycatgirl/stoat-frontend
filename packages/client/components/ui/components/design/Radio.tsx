@@ -23,7 +23,7 @@ interface Props {
  * @specification https://m3.material.io/components/radio
  */
 export function Radio2(props: GroupProps) {
-  return <mdui-radio-group {...props} />;
+  return <mdui-radio-group class="radio_group" {...props} />;
 }
 
 /**
@@ -33,5 +33,5 @@ export function Radio2(props: GroupProps) {
  * @specification https://m3.material.io/components/radio
  */
 Radio2.Option = function Option(props: Props) {
-  return <mdui-radio {...props} />;
+  return <mdui-radio class="radio" {...props} />;
 };

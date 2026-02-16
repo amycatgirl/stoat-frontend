@@ -25,12 +25,14 @@ function OverrideSwitch(props: Props) {
       role="radiogroup"
       aria-orientiation="horizontal"
       aria-disabled={props.disabled}
+      class="override_switch"
     >
       <Override
         type="allow"
         selected={props.value}
         onClick={() => !props.disabled && props.onChange("allow")}
         role="radio"
+        class="allow"
       >
         <Ripple />
         <BiRegularCheck size={24} />
@@ -40,6 +42,7 @@ function OverrideSwitch(props: Props) {
         selected={props.value}
         onClick={() => !props.disabled && props.onChange("neutral")}
         role="radio"
+        class="passthrough"
       >
         <Ripple />
         <svg
@@ -56,6 +59,7 @@ function OverrideSwitch(props: Props) {
         selected={props.value}
         onClick={() => !props.disabled && props.onChange("deny")}
         role="radio"
+        class="deny"
       >
         <Ripple />
         <BiRegularX size={24} />

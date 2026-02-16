@@ -55,6 +55,7 @@ export interface Props {
 export function CategoryButton(props: Props) {
   return (
     <Base
+      class="category button"
       variant={props.variant}
       isLink={!!props.onClick}
       disabled={props.disabled}

@@ -45,10 +45,13 @@ export function IconButton(props: Props) {
       {...passthrough}
       {...buttonProps}
       ref={ref}
-      class={iconButton2({
-        ...style,
-        disabled: buttonProps.disabled,
-      })}
+      class={
+        "button with_icon" +
+        iconButton2({
+          ...style,
+          disabled: buttonProps.disabled,
+        })
+      }
       // @codegen directives props=rest include=floating
     >
       <Show when={!buttonProps.disabled}>

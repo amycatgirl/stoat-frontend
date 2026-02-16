@@ -173,70 +173,72 @@ export function TextEditor(props: Props) {
     () => (placeholder.style.display = value().length ? "none" : "block"),
   );
 
-  proseMirror.className = css({
-    flexGrow: 1,
-    alignItems: "center",
+  proseMirror.className =
+    "texteditor " +
+    css({
+      flexGrow: 1,
+      alignItems: "center",
 
-    cursor: "text",
+      cursor: "text",
 
-    "& > .ProseMirror": {
-      width: "100%",
-      // todo: consider alternative, nicer looking indication that it's selected
-      outline: "none",
+      "& > .ProseMirror": {
+        width: "100%",
+        // todo: consider alternative, nicer looking indication that it's selected
+        outline: "none",
 
-      fontWeight: 400,
-      fontSize: "var(--message-size)",
-    },
-
-    // copied from elements.ts:
-    "& h1": {
-      fontSize: "2em",
-      fontWeight: 600,
-    },
-    "& h2": {
-      fontSize: "1.6em",
-      fontWeight: 600,
-    },
-    "& h3": {
-      fontSize: "1.4em",
-      fontWeight: 600,
-    },
-    "& h4": {
-      fontSize: "1.2em",
-      fontWeight: 600,
-    },
-    "& h5": {
-      fontSize: "1em",
-      fontWeight: 600,
-    },
-    "& h6": {
-      fontSize: "0.8em",
-      fontWeight: 600,
-    },
-    "& ul": {
-      listStylePosition: "outside",
-      paddingLeft: "1.5em",
-
-      "& li": {
-        listStyleType: "disc",
+        fontWeight: 400,
+        fontSize: "var(--message-size)",
       },
 
-      "& li li": {
-        listStyleType: "circle",
+      // copied from elements.ts:
+      "& h1": {
+        fontSize: "2em",
+        fontWeight: 600,
       },
-    },
-    "& ol": {
-      listStylePosition: "outside",
-      paddingLeft: "1.5em",
+      "& h2": {
+        fontSize: "1.6em",
+        fontWeight: 600,
+      },
+      "& h3": {
+        fontSize: "1.4em",
+        fontWeight: 600,
+      },
+      "& h4": {
+        fontSize: "1.2em",
+        fontWeight: 600,
+      },
+      "& h5": {
+        fontSize: "1em",
+        fontWeight: 600,
+      },
+      "& h6": {
+        fontSize: "0.8em",
+        fontWeight: 600,
+      },
+      "& ul": {
+        listStylePosition: "outside",
+        paddingLeft: "1.5em",
 
-      listStyleType: "decimal",
-    },
+        "& li": {
+          listStyleType: "disc",
+        },
 
-    // anchors.ts
-    "& a": {
-      color: "var(--md-sys-color-primary) !important",
-    },
-  });
+        "& li li": {
+          listStyleType: "circle",
+        },
+      },
+      "& ol": {
+        listStylePosition: "outside",
+        paddingLeft: "1.5em",
+
+        listStyleType: "decimal",
+      },
+
+      // anchors.ts
+      "& a": {
+        color: "var(--md-sys-color-primary) !important",
+      },
+    });
 
   placeholder.className = css({
     ...typography.raw({ class: "_messages" }),

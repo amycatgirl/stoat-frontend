@@ -51,7 +51,7 @@ export function DataTable(props: Props) {
       : 0;
 
   return (
-    <Container>
+    <Container class="datatable">
       <Table>
         <Head>
           <Show when={props.header}>

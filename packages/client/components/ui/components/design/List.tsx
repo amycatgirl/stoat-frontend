@@ -12,7 +12,7 @@ import { cva } from "styled-system/css";
  * @specification https://m3.material.io/components/lists
  */
 export function List(props: { children: JSXElement }) {
-  return <mdui-list>{props.children}</mdui-list>;
+  return <mdui-list class="list">{props.children}</mdui-list>;
 }
 
 /**
@@ -20,7 +20,7 @@ export function List(props: { children: JSXElement }) {
  */
 function ListSubheader(props: { children: JSXElement }) {
   return (
-    <mdui-list-subheader class={subheader()}>
+    <mdui-list-subheader class={"subheader " + subheader()}>
       {props.children}
     </mdui-list-subheader>
   );
@@ -43,7 +43,7 @@ function ListItem(props: {
   disabled?: boolean;
   onClick?: () => void;
 }) {
-  return <mdui-list-item class={listitem()} {...props} />;
+  return <mdui-list-item class={"item " + listitem()} {...props} />;
 }
 
 List.Item = ListItem;
