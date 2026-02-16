@@ -18,7 +18,7 @@ interface Props {
  */
 export function Breadcrumbs(props: Props) {
   return (
-    <Base wrap align>
+    <Base class="breadcrumbs" wrap align>
       <For each={props.elements}>
         {(element, index) => {
           /**

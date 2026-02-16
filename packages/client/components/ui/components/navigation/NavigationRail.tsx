@@ -20,7 +20,7 @@ interface Props {
 export function NavigationRail(props: Props) {
   return (
     <mdui-navigation-rail
-      class={rail()}
+      class={"mdui-navRail " + rail()}
       value={props.value()}
       onChange={(e: Event & { currentTarget: HTMLInputElement }) =>
         props.onValue(e.currentTarget.value)
