@@ -77,7 +77,7 @@ export function CategoryContextMenu(props: {
   };
 
   return (
-    <ContextMenu>
+    <ContextMenu class="context_menu category">
       <Show when={hasUnread()}>
         <ContextMenuButton icon={MdMarkChatRead} onClick={markAsRead}>
           <Trans>Mark as read</Trans>

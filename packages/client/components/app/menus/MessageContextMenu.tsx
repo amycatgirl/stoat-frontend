@@ -130,7 +130,7 @@ export function MessageContextMenu(props: { message?: Message; file?: File }) {
   }
 
   return (
-    <ContextMenu>
+    <ContextMenu class="context_menu message">
       <Show when={props.file}>
         <ContextMenuButton icon={MdOpenInNew} onClick={OpenFile}>
           <Trans>Open file</Trans>

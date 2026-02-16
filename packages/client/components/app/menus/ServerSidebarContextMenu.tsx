@@ -36,7 +36,7 @@ export function ServerSidebarContextMenu(props: { server: Server }) {
   }
 
   return (
-    <ContextMenu>
+    <ContextMenu class="context_menu server_sidebar">
       <Show when={props.server?.havePermission("ManageChannel")}>
         <ContextMenuButton icon={MdLibraryAdd} onClick={createChannel}>
           <Trans>Create channel</Trans>

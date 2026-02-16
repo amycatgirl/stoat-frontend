@@ -190,7 +190,7 @@ export function UserContextMenu(props: {
   }
 
   return (
-    <ContextMenu class="UserContextMenu">
+    <ContextMenu class="context_menu user">
       <Show when={props.inVoice && !props.user.self}>
         <ContextMenuButton
           onMouseDown={(e) => e.stopImmediatePropagation()}

@@ -107,7 +107,7 @@ export function ChannelContextMenu(props: { channel: Channel }) {
   }
 
   return (
-    <ContextMenu>
+    <ContextMenu class="context_menu channel">
       <Show
         when={
           props.channel.unread || props.channel.havePermission("InviteOthers")

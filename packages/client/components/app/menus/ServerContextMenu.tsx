@@ -159,7 +159,7 @@ export function ServerContextMenu(props: { server: Server }) {
     props.server.havePermission("ManageWebhooks");
 
   return (
-    <ContextMenu>
+    <ContextMenu class="context_menu server">
       <Show when={props.server.unread}>
         <ContextMenuButton icon={MdMarkChatRead} onClick={markAsRead}>
           <Trans>Mark as read</Trans>
