@@ -22,7 +22,7 @@ export function ProfileRoles(props: { member?: ServerMember }) {
 
   return (
     <Show when={props.member?.roles.length}>
-      <ProfileCard isLink onClick={openRoles}>
+      <ProfileCard class="roles" isLink onClick={openRoles}>
         <Ripple />
 
         <Text class="title" size="large">
@@ -31,7 +31,7 @@ export function ProfileRoles(props: { member?: ServerMember }) {
         <div use:invisibleScrollable>
           <For each={props.member!.orderedRoles.toReversed()}>
             {(role) => (
-              <Row align>
+              <Row class="role" align>
                 <Role>{role.name}</Role>
                 <RoleIcon
                   style={{

@@ -48,7 +48,7 @@ export function ProfileActions(props: {
   }
 
   return (
-    <Actions width={props.width}>
+    <Actions class="actions" width={props.width}>
       <Show when={props.user.relationship === "None" && !props.user.bot}>
         <Button onPress={() => props.user.addFriend()}>Add Friend</Button>
       </Show>

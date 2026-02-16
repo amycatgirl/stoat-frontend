@@ -14,7 +14,7 @@ export function ProfileJoined(props: { user: User; member?: ServerMember }) {
   const dayjs = useTime();
 
   return (
-    <ProfileCard>
+    <ProfileCard class="joinDates">
       <Text class="title" size="large">
         <Trans>Joined</Trans>
       </Text>

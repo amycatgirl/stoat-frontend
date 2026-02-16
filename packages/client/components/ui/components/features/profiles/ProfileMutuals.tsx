@@ -74,7 +74,7 @@ export function ProfileMutuals(props: { user: User }) {
   return (
     <>
       <Show when={query.data?.users.length}>
-        <ProfileCard isLink onClick={openFriends}>
+        <ProfileCard class="mutuals" isLink onClick={openFriends}>
           <Ripple />
 
           <Text class="title" size="large">
@@ -94,7 +94,7 @@ export function ProfileMutuals(props: { user: User }) {
         </ProfileCard>
       </Show>
       <Show when={query.data?.users.length}>
-        <ProfileCard isLink onClick={openGroups}>
+        <ProfileCard class="groups" isLink onClick={openGroups}>
           <Ripple />
 
           <Text class="title" size="large">

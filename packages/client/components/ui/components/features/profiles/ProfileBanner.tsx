@@ -17,6 +17,7 @@ export function ProfileBanner(props: {
 }) {
   return (
     <Banner
+      class="banner"
       style={{
         "background-image": `linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.7)), url('${props.bannerUrl}')`,
       }}
