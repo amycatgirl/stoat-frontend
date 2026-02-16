@@ -179,7 +179,7 @@ function Floating(props: FloatingElement & { mouseX: number; mouseY: number }) {
       >
         <Switch>
           <Match when={props.show()?.tooltip}>
-            <TooltipBase>
+            <TooltipBase class="tooltip">
               {typeof props.show()!.tooltip!.content === "function"
                 ? (props.show()!.tooltip!.content as (arg1: object) => void)({})
                 : props.show()!.tooltip!.content}

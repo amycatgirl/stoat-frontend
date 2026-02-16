@@ -51,6 +51,7 @@ export function UserCard(
         e.preventDefault();
         e.stopImmediatePropagation();
       }}
+      class="userCard"
     >
       <Grid>
         <Profile.Banner
