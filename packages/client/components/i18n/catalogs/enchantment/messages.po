@@ -910,6 +910,10 @@ msgstr "ᓵ⚍∷∷ᒷリℸ !¡ᔑᓭᓭ∴𝙹∷↸"
 msgid "Current Session"
 msgstr ""
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Custom CSS (WIP)"
+msgstr ""
+
 #: components/modal/modals/CustomStatus.tsx
 msgid "Custom status"
 msgstr "ᓵ⚍ᓭℸ𝙹ᒲ ᓭℸᔑℸ⚍ᓭ"
