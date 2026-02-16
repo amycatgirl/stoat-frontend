@@ -41,6 +41,7 @@ export function Dialog(props: Props) {
   return (
     <Portal mount={document.getElementById("floating")!}>
       <Dialog.Scrim
+        class="dialog"
         show={props.show}
         onClick={props.onClose}
         style={{

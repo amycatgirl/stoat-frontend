@@ -7,5 +7,5 @@ import "mdui/components/circular-progress.js";
  * @specification https://m3.material.io/components/progress-indicators
  */
 export function CircularProgress() {
-  return <mdui-circular-progress />;
+  return <mdui-circular-progress class="circular-progress" />;
 }

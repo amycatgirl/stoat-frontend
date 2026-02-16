@@ -118,6 +118,7 @@ const FallbackBase = styled("div", {
 export function Avatar(props: Props) {
   return (
     <ParentBase
+      class="avatar"
       // @ts-expect-error not typed for some reason
       slot={props.slot}
       style={{
@@ -150,7 +151,7 @@ export function Avatar(props: Props) {
               when={props.src}
               keyed
               fallback={
-                <FallbackBase contrast={props.primaryContrast}>
+                <FallbackBase class="fallback" contrast={props.primaryContrast}>
                   {typeof props.fallback === "string" ? (
                     <Initials input={props.fallback} maxLength={2} />
                   ) : (

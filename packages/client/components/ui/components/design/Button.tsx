@@ -124,14 +124,17 @@ export function Button(props: Props) {
       {...passthrough}
       {...buttonProps}
       ref={ref}
-      class={button({
-        shape: shape(),
-        variant: variant(),
-        size: style.size,
-        group: style.group,
-        disabled: buttonProps.disabled,
-        _permitAnimation,
-      })}
+      class={
+        "button " +
+        button({
+          shape: shape(),
+          variant: variant(),
+          size: style.size,
+          group: style.group,
+          disabled: buttonProps.disabled,
+          _permitAnimation,
+        })
+      }
       style={{
         "background-color": style.bg,
       }}

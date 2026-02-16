@@ -37,6 +37,7 @@ type Props = JSX.HTMLAttributes<HTMLInputElement> & {
 export function TextField(props: Props) {
   return (
     <mdui-text-field
+      class="textfield"
       {...props}
       // @codegen directives props=props include=autoComplete
     />
@@ -51,7 +52,7 @@ function Select(
     disabled?: boolean;
   },
 ) {
-  return <mdui-select {...props} />;
+  return <mdui-select class="select" {...props} />;
 }
 
 /**

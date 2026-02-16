@@ -20,5 +20,5 @@ type Props = {
  * @specification https://m3.material.io/components/checkbox
  */
 export function Checkbox(props: Props) {
-  return <mdui-checkbox {...props} />;
+  return <mdui-checkbox class="checkbox" {...props} />;
 }
