@@ -25,7 +25,7 @@ export function VoiceCallCardPiP() {
   );
 
   return (
-    <MiniCard>
+    <MiniCard class="PiP">
       <Row>
         <TrackLoop tracks={tracks}>{() => <ConnectedUser />}</TrackLoop>
       </Row>
@@ -47,7 +47,7 @@ function ConnectedUser() {
   const user = useUser(participant.identity);
 
   return (
-    <UserIcon speaking={isSpeaking()}>
+    <UserIcon class="participant" speaking={isSpeaking()}>
       <Avatar size={24} src={user().avatar} fallback={user().username} />
       <Show when={isMuted()}>
         <Symbol>mic_off</Symbol>
