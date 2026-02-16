@@ -58,7 +58,7 @@ export function TextFile(props: Props) {
   });
 
   return (
-    <Container>
+    <Container class="file_contents">
       <Switch fallback={<CircularProgress />}>
         <Match
           when={

@@ -53,6 +53,7 @@ export function SpecialEmbed(props: { embed: WebsiteEmbed }) {
   return (
     <SizedContent width={getSize()?.width} height={getSize()?.height}>
       <iframe
+        class="embedded special"
         loading="lazy"
         scrolling="no"
         allowfullscreen

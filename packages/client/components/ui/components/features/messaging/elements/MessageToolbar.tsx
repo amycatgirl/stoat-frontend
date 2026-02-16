@@ -42,10 +42,10 @@ export function MessageToolbar(props: { message?: Message }) {
   }
 
   return (
-    <Base class="Toolbar">
+    <Base class="toolbar">
       <Show when={props.message?.channel?.havePermission("SendMessage")}>
         <div
-          class={tool()}
+          class={"tool " + tool()}
           onClick={() => state.draft.addReply(props.message!, user()!.id)}
         >
           <Ripple />
@@ -73,7 +73,7 @@ export function MessageToolbar(props: { message?: Message }) {
           {(triggerProps) => (
             <div
               ref={triggerProps.ref}
-              class={tool()}
+              class={"tool " + tool()}
               onClick={triggerProps.onClickEmoji}
             >
               <Ripple />
@@ -84,7 +84,7 @@ export function MessageToolbar(props: { message?: Message }) {
       </Show>
       <Show when={props.message?.author?.self}>
         <div
-          class={tool()}
+          class={"tool " + tool()}
           onClick={() => state.draft.setEditingMessage(props.message)}
         >
           <Ripple />
@@ -97,13 +97,13 @@ export function MessageToolbar(props: { message?: Message }) {
           props.message?.channel?.havePermission("ManageMessages")
         }
       >
-        <div class={tool()} onClick={deleteMessage}>
+        <div class={"tool " + tool()} onClick={deleteMessage}>
           <Ripple />
           <MdDelete {...iconSize(20)} />
         </div>
       </Show>
       <div
-        class={tool()}
+        class={"tool " + tool()}
         use:floating={{
           contextMenu: () => <MessageContextMenu message={props.message!} />,
           contextMenuHandler: "click",

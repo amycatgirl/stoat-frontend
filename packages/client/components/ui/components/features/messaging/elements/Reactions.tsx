@@ -95,7 +95,7 @@ export function Reactions(props: Props) {
 
   return (
     <Show when={hasReactions()}>
-      <List>
+      <List class="reactions">
         <For each={lists().required}>
           {(entry) => (
             <Reaction
@@ -213,7 +213,12 @@ function Reaction(props: {
       )}
       aria={peopleList()}
     >
-      <ReactionBase active={props.active} onClick={onClick}>
+      <ReactionBase
+        class="reaction"
+        id={props.reaction}
+        active={props.active}
+        onClick={onClick}
+      >
         <Ripple />
         <Emoji emoji={props.reaction} /> {props.users?.size || 0}
       </ReactionBase>

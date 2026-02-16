@@ -38,10 +38,10 @@ export function Attachment(props: { file: File; message?: Message }) {
           height={(props.file.metadata as ImageEmbed).height}
         >
           <Show when={props.file.isSpoiler}>
-            <Spoiler contentType="Image" />
+            <Spoiler contentType="image" />
           </Show>
           <img
-            class={css({ cursor: "pointer" })}
+            class={"attachment" + css({ cursor: "pointer" })}
             onClick={() =>
               openModal({
                 type: "image_viewer",
@@ -64,9 +64,10 @@ export function Attachment(props: { file: File; message?: Message }) {
           height={(props.file.metadata as VideoEmbed).height}
         >
           <Show when={props.file.isSpoiler}>
-            <Spoiler contentType="Video" />
+            <Spoiler contentType="video" />
           </Show>
           <video
+            class="attachment"
             controls
             preload="metadata"
             src={props.file.originalUrl}
@@ -79,10 +80,11 @@ export function Attachment(props: { file: File; message?: Message }) {
         </SizedContent>
       </Match>
       <Match when={props.file.metadata.type === "Audio"}>
-        <AttachmentContainer>
+        <AttachmentContainer class="attachment">
           <FileInfo file={props.file} />
           <SizedContent width={360} height={48}>
             <audio
+              class="audio"
               controls
               src={props.file.originalUrl}
               use:floating={{

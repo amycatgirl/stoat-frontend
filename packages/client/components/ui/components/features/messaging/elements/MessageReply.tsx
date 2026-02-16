@@ -115,7 +115,7 @@ export function MessageReply(props: Props) {
   };
 
   return (
-    <Base noDecorations={props.noDecorations}>
+    <Base class="reply" noDecorations={props.noDecorations}>
       <Switch fallback={<Trans>Message not loaded, click to jump</Trans>}>
         <Match when={props.message?.author?.relationship === "Blocked"}>
           <Trans>Blocked User</Trans>

@@ -6,7 +6,7 @@ import { styled } from "styled-system/jsx";
 import { Text } from "../design";
 
 interface Props {
-  contentType?: "Image" | "Video";
+  contentType?: "image" | "video";
 }
 
 const Base = styled("div", {
@@ -41,7 +41,7 @@ export function Spoiler(props: Props) {
   return (
     <Show when={shown()}>
       <Base
-        class={`Spoiler ${props.contentType}`}
+        class={`spoiler ${props.contentType}`}
         onClick={() => setShown(false)}
       >
         <Text>

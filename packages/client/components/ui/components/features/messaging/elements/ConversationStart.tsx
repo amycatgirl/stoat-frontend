@@ -18,7 +18,7 @@ interface Props {
  */
 export function ConversationStart(props: Props) {
   return (
-    <Base>
+    <Base class="conversation_start">
       <Show when={props.channel.type !== "SavedMessages"}>
         <Text class="headline" size="large">
           {props.channel.name ?? props.channel.recipient?.username}

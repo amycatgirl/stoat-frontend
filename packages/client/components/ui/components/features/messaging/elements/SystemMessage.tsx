@@ -47,7 +47,7 @@ export function SystemMessage(props: Props) {
   const dayjs = useTime();
 
   return (
-    <Base>
+    <Base class="message system">
       <Switch fallback={props.systemMessage.type}>
         <Match when={props.systemMessage.type === "user_added"}>
           <Trans>
