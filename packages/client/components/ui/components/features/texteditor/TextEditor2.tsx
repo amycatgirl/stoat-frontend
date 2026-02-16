@@ -71,7 +71,7 @@ const placeholderCompartment = new Compartment();
  */
 export function TextEditor2(props: Props) {
   const codeMirror = document.createElement("div");
-  codeMirror.className = editor;
+  codeMirror.className = "texteditor " + editor;
 
   /**
    * Handle 'Enter' key presses
