@@ -220,7 +220,7 @@ export function ServerMemberSidebar(props: Props) {
   });
 
   return (
-    <Container>
+    <Container class="sidebar members">
       <MemberTitle bottomMargin="yes">
         <Row align>
           <UserStatus size="0.7em" status="Online" />
@@ -276,7 +276,7 @@ export function ServerMemberSidebar(props: Props) {
  */
 export function GroupMemberSidebar(props: Props) {
   return (
-    <Container>
+    <Container class="sidebar members">
       <MemberTitle>
         <Row align>{props.channel.recipientIds.size} members</Row>
       </MemberTitle>

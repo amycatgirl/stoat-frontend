@@ -10,6 +10,7 @@ export function Swoosh(props: Props) {
   // TODO: should depend on if server sidebar is hidden
   return (
     <svg
+      class="swoosh"
       width="56"
       height="106"
       viewBox="0 0 56 106"

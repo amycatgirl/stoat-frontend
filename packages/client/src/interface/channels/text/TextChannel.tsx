@@ -155,14 +155,14 @@ export function TextChannel(props: ChannelPageProps) {
 
   return (
     <>
-      <Header placement="primary">
+      <Header class="header" placement="primary">
         <ChannelHeader
           channel={props.channel}
           sidebarState={sidebarState}
           setSidebarState={setSidebarState}
         />
       </Header>
-      <Content>
+      <Content class="content">
         <main class={main()}>
           <Show
             when={props.channel.isVoice}
@@ -239,7 +239,7 @@ export function TextChannel(props: ChannelPageProps) {
               }
             >
               <Match when={sidebarState().state === "search"}>
-                <WideSidebarContainer>
+                <WideSidebarContainer class="sidebar search">
                   <SidebarTitle>
                     <Text class="label" size="large">
                       Search Results
@@ -254,7 +254,7 @@ export function TextChannel(props: ChannelPageProps) {
                 </WideSidebarContainer>
               </Match>
               <Match when={sidebarState().state === "pins"}>
-                <WideSidebarContainer>
+                <WideSidebarContainer class="sidebar pins">
                   <SidebarTitle>
                     <Text class="label" size="large">
                       Pinned Messages

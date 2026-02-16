@@ -56,7 +56,7 @@ export function AgeGate(props: {
               (geoQuery.data && geoQuery.data.isAgeRestrictedGeo))
           }
         >
-          <Base>
+          <Base class="agegate">
             <MdWarning {...iconSize("8em")} />
             <Text class="headline" size="large">
               {props.contentName}
