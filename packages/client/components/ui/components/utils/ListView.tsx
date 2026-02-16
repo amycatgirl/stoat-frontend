@@ -89,6 +89,7 @@ export function ListView(props: Props) {
 
   return (
     <div
+      class="listview"
       id={id}
       use:scrollable={{
         direction: "y",
