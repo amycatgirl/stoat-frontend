@@ -54,7 +54,7 @@ export function Embed(props: { embed: MessageEmbed }) {
             // bypass proxy for known GIF providers
             src={isGIF() ? image()!.url : image()!.proxiedURL}
             loading="lazy"
-            class={css({ cursor: "pointer" })}
+            class={"embedded image" + css({ cursor: "pointer" })}
             onClick={() =>
               openModal({
                 type: "image_viewer",
@@ -74,7 +74,10 @@ export function Embed(props: { embed: MessageEmbed }) {
             preload="metadata"
             // bypass proxy for known GIF providers
             src={isGIF() ? video()!.url : video()!.proxiedURL}
-            class={css({ cursor: isGIF() ? "pointer" : "unset" })}
+            class={
+              `embedded ${isGIF() ? "gif" : "video"}` +
+              css({ cursor: isGIF() ? "pointer" : "unset" })
+            }
             onClick={() =>
               isGIF() &&
               openModal({

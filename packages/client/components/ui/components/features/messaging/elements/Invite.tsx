@@ -47,7 +47,7 @@ export function Invite(props: Props) {
   }));
 
   return (
-    <Base>
+    <Base class="invite">
       <Suspense fallback={<CircularProgress />}>
         <Avatar
           size={42}

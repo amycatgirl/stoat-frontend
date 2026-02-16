@@ -39,7 +39,7 @@ interface Props {
  */
 export function FileInfo(props: Props) {
   return (
-    <Base align>
+    <Base align class="file">
       <Switch fallback={<BiSolidFile size={24} />}>
         <Match
           when={

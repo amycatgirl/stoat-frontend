@@ -40,7 +40,7 @@ interface Props {
  */
 export function BlockedMessage(props: Props) {
   return (
-    <Base>
+    <Base class="blocked">
       <Ripple />
       <MdClose {...iconSize(16)} />{" "}
       <Plural

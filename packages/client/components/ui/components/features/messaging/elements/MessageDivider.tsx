@@ -75,7 +75,10 @@ interface Props {
  */
 export function MessageDivider(props: Props) {
   return (
-    <Base unread={props.unread}>
+    <Base
+      class={"message_divider" + props.unread && " unread"}
+      unread={props.unread}
+    >
       <Show when={props.unread}>
         <Unread>
           <Trans>NEW</Trans>
