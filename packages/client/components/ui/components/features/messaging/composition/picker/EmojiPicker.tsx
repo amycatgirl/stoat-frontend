@@ -138,7 +138,7 @@ export function EmojiPicker() {
   });
 
   return (
-    <Stack>
+    <Stack class="picker emoji">
       <TextField
         autoFocus
         variant="filled"
@@ -220,6 +220,7 @@ const ServerItem = (props: {
   item: number;
 }) => (
   <ServerOption
+    class="item"
     style={props.style as never}
     tabIndex={props.tabIndex}
     role="listitem"
@@ -240,6 +241,7 @@ const EmojiItem = (props: { style: unknown; tabIndex: number; item: Item }) => {
 
   return (
     <EmojiOption
+      class="option"
       style={props.style as never}
       type={props.item.t}
       tabIndex={props.tabIndex}
@@ -327,7 +329,7 @@ const EmojiOption = styled("div", {
 
 function ServerHeader(props: { server: Server }) {
   return (
-    <Row align>
+    <Row class="header" align>
       <Avatar
         size={24}
         src={props.server.animatedIconURL}
