@@ -24,7 +24,7 @@ export function ProfileBadges(props: { user: User }) {
 
   return (
     <Show when={props.user.badges}>
-      <ProfileCard>
+      <ProfileCard class="badges">
         <Text class="title" size="large">
           <Trans>Badges</Trans>
         </Text>

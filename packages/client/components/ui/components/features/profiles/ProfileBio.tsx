@@ -21,6 +21,7 @@ export function ProfileBio(props: Props) {
   return (
     <Show when={props.content}>
       <ProfileCard
+        class="bio"
         onClick={props.onClick}
         isLink={typeof props.onClick !== "undefined"}
         width={props.full ? 3 : 2}
