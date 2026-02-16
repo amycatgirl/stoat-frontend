@@ -49,7 +49,7 @@ export function NewMessages(props: Props) {
   return (
     <Show when={props.lastId()}>
       <FloatingIndicator
-        class="new_messages_indicator"
+        class="indicator jump_new"
         position="top"
         onClick={props.jumpBack}
       >

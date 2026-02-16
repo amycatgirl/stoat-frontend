@@ -21,7 +21,7 @@ interface Props {
 export function JumpToBottom(props: Props) {
   return (
     <FloatingIndicator
-      class="jump_to_bottom_indicator"
+      class="indicator jump_new"
       position="bottom"
       onClick={props.onClick}
     >
