@@ -48,7 +48,11 @@ export function NewMessages(props: Props) {
 
   return (
     <Show when={props.lastId()}>
-      <FloatingIndicator position="top" onClick={props.jumpBack}>
+      <FloatingIndicator
+        class="new_messages_indicator"
+        position="top"
+        onClick={props.jumpBack}
+      >
         <Ripple />
         <span class={css({ flexGrow: 1 })}>
           <Trans>

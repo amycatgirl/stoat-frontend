@@ -20,7 +20,11 @@ interface Props {
  */
 export function JumpToBottom(props: Props) {
   return (
-    <FloatingIndicator position="bottom" onClick={props.onClick}>
+    <FloatingIndicator
+      class="jump_to_bottom_indicator"
+      position="bottom"
+      onClick={props.onClick}
+    >
       <Ripple />
       <span style={{ "flex-grow": 1 }}>
         <Trans>Viewing older messages</Trans>
