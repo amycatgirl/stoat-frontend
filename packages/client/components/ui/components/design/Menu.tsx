@@ -13,5 +13,5 @@ export function MenuItem(
     value?: string;
   },
 ) {
-  return <mdui-menu-item class="item menu" {...props} />;
+  return <mdui-menu-item class="item" {...props} />;
 }

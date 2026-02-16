@@ -58,12 +58,12 @@ export function MenuButton(props: Props & JSX.HTMLAttributes<HTMLDivElement>) {
     <div
       {...other}
       classList={{
+        item: true,
         [base({
           attention: local.attention,
           size: local.size,
         })]: true,
       }}
-      class="menu button"
       // @codegen directives props=other include=floating
     >
       <Ripple />
