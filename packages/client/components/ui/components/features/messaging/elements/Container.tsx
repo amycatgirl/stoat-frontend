@@ -134,7 +134,7 @@ const base = cva({
       textDecoration: "underline",
     },
 
-    "&:hover .Toolbar": {
+    "&:hover .toolbar": {
       display: "flex",
     },
   },
