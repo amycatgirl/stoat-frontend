@@ -241,7 +241,7 @@ export function ServerMemberSidebar(props: Props) {
   );
 
   return (
-    <Container>
+    <Container class="sidebar members">
       <Show when={!LARGE_SERVERS.includes(props.channel.serverId)}>
         <MemberTitle bottomMargin="yes">
           <Row align>
@@ -291,7 +291,7 @@ export function ServerMemberSidebar(props: Props) {
  */
 export function GroupMemberSidebar(props: Props) {
   return (
-    <Container>
+    <Container class="sidebar members">
       <MemberTitle>
         <Row align>{props.channel.recipientIds.size} members</Row>
       </MemberTitle>

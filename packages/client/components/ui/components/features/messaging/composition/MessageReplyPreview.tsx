@@ -104,7 +104,7 @@ const Base = styled(Row, {
  */
 export function MessageReplyPreview(props: Props) {
   return (
-    <Base gap="md" align>
+    <Base class="reply_preview" gap="md" align>
       <ReplyTo>
         <Trans>Replying to</Trans>
       </ReplyTo>

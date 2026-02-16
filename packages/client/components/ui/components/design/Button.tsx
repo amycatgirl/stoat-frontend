@@ -125,7 +125,7 @@ export function Button(props: Props) {
       {...buttonProps}
       ref={ref}
       class={
-        "button " +
+        `button ${style.group ?? ""}` +
         button({
           shape: shape(),
           variant: variant(),

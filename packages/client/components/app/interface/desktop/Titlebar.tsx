@@ -50,7 +50,7 @@ export function Titlebar() {
           animate={{ height: "29px" }}
           exit={{ height: 0 }}
         >
-          <Base disconnected={isDisconnected()}>
+          <Base class="titlebar" disconnected={isDisconnected()}>
             <Title
               style={{
                 "-webkit-user-select": "none",
@@ -123,11 +123,11 @@ export function Titlebar() {
               </Show>
             </DragHandle>
             <Show when={window.native}>
-              <Action onClick={window.native.minimise}>
+              <Action class="minimise" onClick={window.native.minimise}>
                 <Ripple />
                 <MdMinimize {...symbolSize(20)} />
               </Action>
-              <Action onClick={maximise}>
+              <Action class="maximise" onClick={maximise}>
                 <Ripple />
                 <Show
                   when={isMaximised()}
@@ -136,7 +136,7 @@ export function Titlebar() {
                   <MdCollapseContent {...symbolSize(20)} />
                 </Show>
               </Action>
-              <Action onClick={window.native.close}>
+              <Action class="close" onClick={window.native.close}>
                 <Ripple />
                 <MdClose {...symbolSize(20)} />
               </Action>

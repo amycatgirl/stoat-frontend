@@ -18,7 +18,7 @@ export function HeaderIcon(props: { children: JSX.Element }) {
 
   return (
     <div
-      class={container}
+      class={"header " + container}
       onClick={() =>
         state.layout.toggleSectionState(LAYOUT_SECTIONS.PRIMARY_SIDEBAR, true)
       }

@@ -116,7 +116,7 @@ export const ServerList = (props: Props) => {
   const [menuButton, setMenuButton] = createSignal<HTMLDivElement>();
 
   return (
-    <ServerListBase>
+    <ServerListBase class="serverlist">
       <div use:invisibleScrollable={{ direction: "y", class: listBase() }}>
         <a
           class={entryContainer({
