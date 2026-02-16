@@ -78,6 +78,7 @@ export function Time(props: Props) {
 
   return (
     <time
+      class="timestamp"
       datetime={
         props.value instanceof Date ||
         typeof props.value === "number" ||
