@@ -41,7 +41,7 @@ export function DraftMessageContextMenu(props: Props) {
 
   return (
     <Show when={props.draft.status !== "sending"}>
-      <ContextMenu>
+      <ContextMenu class="context_menu draft">
         <Show when={false}>
           <ContextMenuButton icon={MdClose} onClick={deleteMessage} destructive>
             <Trans>Cancel message</Trans>
