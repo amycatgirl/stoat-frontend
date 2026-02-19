@@ -911,6 +911,10 @@ msgstr "CU223N7 P455W02D"
 msgid "Current Session"
 msgstr ""
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Custom CSS (WIP)"
+msgstr ""
+
 #: components/modal/modals/CustomStatus.tsx
 msgid "Custom status"
 msgstr "CU570M 5747U5"

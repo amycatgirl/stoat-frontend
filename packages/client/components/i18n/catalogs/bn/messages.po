@@ -911,6 +911,10 @@ msgstr "বর্তমান পাসওয়ার্ড"
 msgid "Current Session"
 msgstr ""
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Custom CSS (WIP)"
+msgstr ""
+
 #: components/modal/modals/CustomStatus.tsx
 msgid "Custom status"
 msgstr "কাস্টম স্ট্যাটাস"

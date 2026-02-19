@@ -911,6 +911,10 @@ msgstr "当前密码"
 msgid "Current Session"
 msgstr ""
 
+#: components/app/interface/settings/user/appearance/AppearanceMenu.tsx
+msgid "Custom CSS (WIP)"
+msgstr ""
+
 #: components/modal/modals/CustomStatus.tsx
 msgid "Custom status"
 msgstr "自定义状态"
