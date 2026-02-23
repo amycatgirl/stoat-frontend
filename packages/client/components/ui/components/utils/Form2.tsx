@@ -134,7 +134,12 @@ const FormFileInput = (
     control: IFormControl<File[] | string | null>;
   } & Pick<
     ComponentProps<typeof FileInput>,
-    "accept" | "imageAspect" | "imageRounded" | "imageJustify" | "allowRemoval"
+    | "accept"
+    | "imageAspect"
+    | "imageRounded"
+    | "imageJustify"
+    | "allowRemoval"
+    | "info"
   >,
 ) => {
   const [local, remote] = splitProps(props, ["label", "control"]);

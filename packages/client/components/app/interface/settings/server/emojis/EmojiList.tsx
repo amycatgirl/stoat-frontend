@@ -83,6 +83,7 @@ export function EmojiList(props: { server: Server }) {
                 accept="image/*"
                 imageJustify={false}
                 allowRemoval={false}
+                info={t`(max 500.00KB)`}
               />
             </Column>
             <Column grow>

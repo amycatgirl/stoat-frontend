@@ -156,6 +156,7 @@ export function UserProfileEditor(props: Props) {
           accept="image/*"
           label={t`Avatar`}
           imageJustify={false}
+          info={t`(max 4.00MB)`}
         />
         <Form2.FileInput
           control={editGroup.controls.banner}
@@ -164,6 +165,7 @@ export function UserProfileEditor(props: Props) {
           imageAspect="232/100"
           imageRounded={false}
           imageJustify={false}
+          info={t`(max 6.00MB)`}
         />
         <Form2.TextField
           name="displayName"
