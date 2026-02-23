@@ -42,6 +42,26 @@ msgstr ""
 msgid "(changes are being saved…)"
 msgstr ""
 
+#: components/app/interface/settings/server/Overview.tsx
+#: components/app/interface/settings/channel/Overview.tsx
+msgid "(max 2.50MB)"
+msgstr ""
+
+#: components/modal/modals/ServerIdentity.tsx
+#: components/app/interface/settings/user/profile/UserProfileEditor.tsx
+#: components/app/interface/settings/channel/webhooks/ViewWebhook.tsx
+msgid "(max 4.00MB)"
+msgstr ""
+
+#: components/app/interface/settings/server/emojis/EmojiList.tsx
+msgid "(max 500.00KB)"
+msgstr ""
+
+#: components/app/interface/settings/user/profile/UserProfileEditor.tsx
+#: components/app/interface/settings/server/Overview.tsx
+msgid "(max 6.00MB)"
+msgstr ""
+
 #. placeholder {0}: props.count
 #: components/ui/components/features/messaging/elements/BlockedMessage.tsx
 msgid "{0, plural, one {# blocked message} other {# blocked messages}}"
