@@ -2003,6 +2003,10 @@ msgstr "Output Volume"
 msgid "Overview"
 msgstr "Overview"
 
+#: components/ui/components/features/profiles/ProfileOwner.tsx
+msgid "Owner"
+msgstr "Owner"
+
 #: components/app/interface/settings/server/bans/ListBans.tsx
 msgid "Pardon User"
 msgstr "Pardon User"

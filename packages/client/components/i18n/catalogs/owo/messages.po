@@ -2003,6 +2003,10 @@ msgstr ""
 msgid "Overview"
 msgstr "Ovyurview"
 
+#: components/ui/components/features/profiles/ProfileOwner.tsx
+msgid "Owner"
+msgstr ""
+
 #: components/app/interface/settings/server/bans/ListBans.tsx
 msgid "Pardon User"
 msgstr ""
