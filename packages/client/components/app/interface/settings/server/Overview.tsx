@@ -223,6 +223,7 @@ export default function ServerOverview(props: ServerSettingsProps) {
             accept="image/*"
             label={t`Server Icon`}
             imageJustify={false}
+            info={t`(max 2.50MB)`}
           />
           <Form2.FileInput
             control={editGroup.controls.banner}
@@ -231,6 +232,7 @@ export default function ServerOverview(props: ServerSettingsProps) {
             imageAspect="232/100"
             imageRounded={false}
             imageJustify={false}
+            info={t`(max 6.00MB)`}
           />
           <Form2.TextField
             name="name"

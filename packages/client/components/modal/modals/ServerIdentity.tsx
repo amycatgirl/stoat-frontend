@@ -91,6 +91,7 @@ export function ServerIdentityModal(
             accept="image/*"
             label={t`Server Avatar`}
             imageJustify={false}
+            info={t`(max 4.00MB)`}
           />
           <Form2.TextField
             name="nickname"
