@@ -96,6 +96,7 @@ export function ViewWebhook(props: { webhook: ChannelWebhook }) {
             accept="image/*"
             label={t`Webhook Icon`}
             imageJustify={false}
+            info={t`(max 4.00MB)`}
           />
           <Form2.TextField
             name="name"

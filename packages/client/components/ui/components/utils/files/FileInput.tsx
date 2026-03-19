@@ -5,8 +5,8 @@ import { styled } from "styled-system/jsx";
 
 import MdClose from "@material-design-icons/svg/filled/close.svg?component-solid";
 
-import { Button, Ripple } from "../../design";
-import { Row } from "../../layout";
+import { Button, Ripple, typography } from "../../design";
+import { Column, Row } from "../../layout";
 
 interface Props {
   /**
@@ -34,6 +34,11 @@ interface Props {
    * What type of files to accept
    */
   accept?: "image/*";
+
+  /**
+   * Optional information label to show a file size limit
+   */
+  info?: string;
 
   imageAspect?: string;
   imageRounded?: boolean;
@@ -114,18 +119,26 @@ export function FileInput(props: Props) {
           {...remote}
         />
         <Row align justify={props.imageJustify ?? true} gap="lg">
-          <ImagePreview
-            onClick={() => inputRef!.click()}
-            style={{
-              "aspect-ratio": props.imageAspect ?? "1/1",
-            }}
-            rounded={props.imageRounded ?? true}
-          >
-            <Ripple />
-            <Show when={local.file}>
-              <img src={imageSrc()} />
+          <Column align>
+            <ImagePreview
+              onClick={() => inputRef!.click()}
+              style={{
+                "aspect-ratio": props.imageAspect ?? "1/1",
+              }}
+              rounded={props.imageRounded ?? true}
+            >
+              <Ripple />
+              <Show when={local.file}>
+                <img src={imageSrc()} />
+              </Show>
+            </ImagePreview>
+            <Show when={props.info}>
+              <span class={typography({ class: "label", size: "small" })}>
+                {props.info}
+              </span>
             </Show>
-          </ImagePreview>
+          </Column>
+
           <Show when={props.allowRemoval !== false}>
             <Button
               size="icon"
