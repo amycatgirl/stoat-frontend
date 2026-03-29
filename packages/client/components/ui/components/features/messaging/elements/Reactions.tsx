@@ -176,9 +176,12 @@ function Reaction(props: {
    */
   const peopleList = () => {
     const all = users();
-    const list = all.filter((user) => user);
+    const list = all.filter(
+      (user) => user && user.user?.relationship !== "Blocked",
+    );
     const unknown =
-      all.filter((user) => !user).length + Math.max(0, list.length - 3);
+      all.filter((user) => user?.user?.relationship === "Blocked" || !user)
+        .length + Math.max(0, list.length - 3);
 
     const usernames = list
       .slice(0, 2)
