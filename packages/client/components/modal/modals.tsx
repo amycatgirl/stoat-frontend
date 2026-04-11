@@ -57,6 +57,7 @@ import { UserProfileModal } from "./modals/UserProfile";
 import { UserProfileMutualFriendsModal } from "./modals/UserProfileMutualFriends";
 import { UserProfileMutualGroupsModal } from "./modals/UserProfileMutualGroups";
 import { UserProfileRolesModal } from "./modals/UserProfileRoles";
+import { RemoveMemberModal } from "./modals/RemoveMember";
 
 /**
  * Render the modal
@@ -183,6 +184,8 @@ export function RenderModal(props: ActiveModal & { onClose: () => void }) {
       return <ResetBotTokenModal {...modalProps} />;
     case "edit_category":
       return <EditCategoryModal {...modalProps} />;
+    case "remove_member":
+      return <RemoveMemberModal {...modalProps} />;
 
     default:
       console.error(

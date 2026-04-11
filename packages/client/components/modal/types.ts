@@ -6,9 +6,9 @@ import {
   Emoji,
   File,
   ImageEmbed,
+  Message,
   MFA,
   MFATicket,
-  Message,
   PublicBot,
   PublicChannelInvite,
   Server,
@@ -314,4 +314,9 @@ export type Modals =
       type: "edit_category";
       server: Server;
       category: CategoryData;
+    }
+  | {
+      type: "remove_member";
+      group: Channel;
+      user: User;
     };
