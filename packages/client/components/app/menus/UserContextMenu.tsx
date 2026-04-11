@@ -343,7 +343,8 @@ export function UserContextMenu(props: {
         when={
           props.channel?.type === "Group" &&
           !props.user.self &&
-          props.channel.havePermission("ManageChannel")
+          props.channel.havePermission("ManageChannel") &&
+          !props.channel.owner?.self
         }
       >
         <ContextMenuButton
