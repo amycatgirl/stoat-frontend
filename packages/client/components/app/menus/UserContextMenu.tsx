@@ -1,4 +1,4 @@
-import { JSX, Match, Show, Switch } from "solid-js";
+import { createEffect, JSX, Match, Show, Switch } from "solid-js";
 
 import { Trans } from "@lingui-solid/solid/macro";
 import { useNavigate } from "@solidjs/router";
@@ -29,11 +29,7 @@ import MdReport from "@material-design-icons/svg/outlined/report.svg?component-s
 import MdChecked from "@material-symbols/svg-400/outlined/check_box.svg?component-solid";
 import MdUnchecked from "@material-symbols/svg-400/outlined/check_box_outline_blank.svg?component-solid";
 
-import {
-  ContextMenu,
-  ContextMenuButton,
-  ContextMenuDivider,
-} from "./ContextMenu";
+import { ContextMenu, ContextMenuButton, ContextMenuDivider } from "./ContextMenu";
 import { NotificationContextMenu } from "./shared/NotificationContextMenu";
 
 /**
@@ -55,6 +51,10 @@ export function UserContextMenu(props: {
 
   // server context
   const params = useSmartParams();
+
+  createEffect(() => {
+    console.log(props.channel?.type);
+  });
 
   /**
    * Open direct message channel
@@ -187,6 +187,17 @@ export function UserContextMenu(props: {
    */
   function copyId() {
     navigator.clipboard.writeText(props.user.id);
+  }
+
+  /**
+   * Remove user from group
+   */
+  function removeMember() {
+    openModal({
+      type: "remove_member",
+      user: props.user,
+      group: props.channel!,
+    });
   }
 
   return (
@@ -330,6 +341,22 @@ export function UserContextMenu(props: {
 
       <Show
         when={
+          props.channel?.type === "Group" &&
+          !props.user.self &&
+          props.channel.havePermission("ManageChannel")
+        }
+      >
+        <ContextMenuButton
+          icon={MdPersonRemove}
+          onClick={removeMember}
+          destructive
+        >
+          <Trans>Remove Member</Trans>
+        </ContextMenuButton>
+      </Show>
+
+      <Show
+        when={
           !props.user.self &&
           props.member?.server?.havePermission("BanMembers") &&
           params().serverId &&
@@ -344,6 +371,8 @@ export function UserContextMenu(props: {
           <Trans>Ban user</Trans>
         </ContextMenuButton>
       </Show>
+
+      <ContextMenuDivider />
 
       <Show when={!props.user.self}>
         <ContextMenuButton icon={MdReport} onClick={reportUser} destructive>
@@ -414,11 +443,14 @@ export function UserContextMenu(props: {
  * Provide floating user menus on this element
  * @param user User
  * @param member Server Member
+ * @param contextMessage Message
+ * @param contextGroup Group
  */
 export function floatingUserMenus(
   user: User,
   member?: ServerMember,
   contextMessage?: Message,
+  contextGroup?: Channel,
 ): JSX.Directives["floating"] & object {
   return {
     userCard: {
@@ -435,7 +467,7 @@ export function floatingUserMenus(
           user={user}
           member={member}
           contextMessage={contextMessage}
-          channel={contextMessage?.channel}
+          channel={contextMessage?.channel ?? contextGroup}
         />
       );
     },
