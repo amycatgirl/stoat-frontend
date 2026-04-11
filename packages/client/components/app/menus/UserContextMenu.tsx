@@ -29,7 +29,11 @@ import MdReport from "@material-design-icons/svg/outlined/report.svg?component-s
 import MdChecked from "@material-symbols/svg-400/outlined/check_box.svg?component-solid";
 import MdUnchecked from "@material-symbols/svg-400/outlined/check_box_outline_blank.svg?component-solid";
 
-import { ContextMenu, ContextMenuButton, ContextMenuDivider } from "./ContextMenu";
+import {
+  ContextMenu,
+  ContextMenuButton,
+  ContextMenuDivider,
+} from "./ContextMenu";
 import { NotificationContextMenu } from "./shared/NotificationContextMenu";
 
 /**
