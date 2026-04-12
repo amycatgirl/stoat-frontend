@@ -1,4 +1,4 @@
-import { createEffect, JSX, Match, Show, Switch } from "solid-js";
+import { JSX, Match, Show, Switch } from "solid-js";
 
 import { Trans } from "@lingui-solid/solid/macro";
 import { useNavigate } from "@solidjs/router";
@@ -55,10 +55,6 @@ export function UserContextMenu(props: {
 
   // server context
   const params = useSmartParams();
-
-  createEffect(() => {
-    console.log(props.channel?.type);
-  });
 
   /**
    * Open direct message channel
