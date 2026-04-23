@@ -1,3 +1,4 @@
+import { TrackReference } from "solid-livekit-components";
 import {
   API,
   Bot,
@@ -22,6 +23,7 @@ import { ProtocolV1 } from "stoat.js/lib/events/v1";
 
 import type { SettingsConfigurations } from "@revolt/app";
 import { CategoryData } from "@revolt/app/menus/CategoryContextMenu";
+import { ScreenShareQualityName } from "@revolt/state/stores/Voice";
 
 export type Modals =
   | {
@@ -319,4 +321,10 @@ export type Modals =
       type: "remove_member";
       group: Channel;
       user: User;
+  | {
+      type: "screen_share_settings";
+      trackReference: TrackReference;
+      qualities: { name: string; fullName: string }[];
+      callback: (qualityName: ScreenShareQualityName) => void;
+      onCancel: () => void;
     };
