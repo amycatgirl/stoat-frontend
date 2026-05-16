@@ -321,6 +321,7 @@ export type Modals =
       type: "remove_member";
       group: Channel;
       user: User;
+    }
   | {
       type: "screen_share_settings";
       trackReference: TrackReference;
