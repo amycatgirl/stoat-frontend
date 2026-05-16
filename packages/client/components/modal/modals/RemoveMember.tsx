@@ -7,7 +7,7 @@ import { useModals } from "..";
 import { Modals } from "../types";
 
 /**
- * Ban a server member with reason
+ * Remove a member from a group
  */
 export function RemoveMemberModal(
   props: DialogProps & Modals & { type: "remove_member" },
