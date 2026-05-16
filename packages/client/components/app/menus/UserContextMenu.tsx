@@ -286,6 +286,9 @@ export function UserContextMenu(props: {
     );
   }
 
+  /**
+   * Whether the user can remove a member from the current group
+   */
   function canRemoveMemberFromGroup() {
     return (
       props.channel?.type === "Group" &&
