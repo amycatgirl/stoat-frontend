@@ -293,7 +293,7 @@ export function UserContextMenu(props: {
     return (
       props.channel?.type === "Group" &&
       !props.user.self &&
-      !(props.channel.owner?.id !== props.user.id) &&
+      props.channel.owner?.id !== props.user.id &&
       (props.channel.havePermission("ManageChannel") ||
         props.channel.owner?.self)
     );
@@ -463,8 +463,6 @@ export function UserContextMenu(props: {
       </Show>
 
       {/* Safety: remove friend, block, report */}
-      <ContextMenuDivider />
-
       <Show when={!props.user.self}>
         <ContextMenuDivider />
         <Show when={props.user.relationship === "Friend"}>
