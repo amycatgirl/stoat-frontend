@@ -527,9 +527,11 @@ export function UserContextMenu(props: {
             <Trans>Unblock user</Trans>
           </ContextMenuButton>
         </Show>
-        <ContextMenuButton icon={MdReport} onClick={reportUser} destructive>
-          <Trans>Report user</Trans>
-        </ContextMenuButton>
+        <Show when={!props.user.privileged}>
+          <ContextMenuButton icon={MdReport} onClick={reportUser} destructive>
+            <Trans>Report user</Trans>
+          </ContextMenuButton>
+        </Show>
       </Show>
 
       {/* Developer tools */}
