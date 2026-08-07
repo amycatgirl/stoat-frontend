@@ -33,10 +33,10 @@ import {
 } from "@revolt/ui/themes/fonts";
 
 import MDPalette from "@material-design-icons/svg/outlined/palette.svg?component-solid";
-import SDCornerCircular from "../../../../../../src/svg/corner_circular.svg?component-solid";
-import SDCornerOther from "../../../../../../src/svg/corner_other.svg?component-solid";
-import SDCornerRounded from "../../../../../../src/svg/corner_rounded.svg?component-solid";
-import SDCornerSharp from "../../../../../../src/svg/corner_sharp.svg?component-solid";
+import SDCornerCircular from "../../../../../../public/assets/icons/corner_circular.svg?component-solid";
+import SDCornerOther from "../../../../../../public/assets/icons/corner_other.svg?component-solid";
+import SDCornerRounded from "../../../../../../public/assets/icons/corner_rounded.svg?component-solid";
+import SDCornerSharp from "../../../../../../public/assets/icons/corner_sharp.svg?component-solid";
 
 /**
  * All appearance options for the client
@@ -364,7 +364,7 @@ export function AppearanceMenu() {
           groupActive={state.theme.avatarRadius === 0}
           onPress={() => (state.theme.avatarRadius = 0)}
         >
-          <Row flexGrow={"0 !important"} align>
+          <Row align>
             <SDCornerSharp width={25} height={25} />
             <Trans>Sharp</Trans>
           </Row>
@@ -374,7 +374,7 @@ export function AppearanceMenu() {
           groupActive={state.theme.avatarRadius === 15}
           onPress={() => (state.theme.avatarRadius = 15)}
         >
-          <Row flexGrow={"0 !important"} align>
+          <Row align>
             <SDCornerRounded width={25} height={25} />
             <Trans>Rounded</Trans>
           </Row>
@@ -384,7 +384,7 @@ export function AppearanceMenu() {
           groupActive={state.theme.avatarRadius === 50}
           onPress={() => (state.theme.avatarRadius = 50)}
         >
-          <Row flexGrow={"0 !important"} align>
+          <Row align>
             <SDCornerCircular width={25} height={25} />
             <Trans>Circular</Trans>
           </Row>
@@ -397,7 +397,7 @@ export function AppearanceMenu() {
           }
           onPress={() => openModal({ type: "avatar_radius" })}
         >
-          <Row flexGrow={"0 !important"} align>
+          <Row align>
             <SDCornerOther width={25} height={25} />
             <Trans>Custom</Trans>
           </Row>
